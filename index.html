@@ -366,6 +366,34 @@
             font-weight: 600;
             margin-bottom: 15px;
         }
+
+        /* Profile image adjustments */
+        .profile-image-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4px;
+        }
+
+        .profile-image-wrapper {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -469,11 +497,11 @@
     <section id="about" class="py-20 md:py-32 relative">
         <div class="container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
-                <div data-aos="fade-right">
+                <div data-aos="fade-right" class="flex justify-center lg:justify-start">
                     <div class="relative">
-                        <div class="w-64 h-64 md:w-80 md:h-80 mx-auto lg:mx-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 p-1 glow-on-hover">
-                            <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden">
-                                <img src="kanish.jpg" alt="SJ Kanish" class="w-full h-full object-cover">
+                        <div class="profile-image-container glow-on-hover">
+                            <div class="profile-image-wrapper">
+                                <img src="kanish.jpg" alt="SJ Kanish" class="profile-image">
                             </div>
                         </div>
                         <div class="absolute -top-4 -right-4 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-full flex items-center justify-center animate-pulse">
