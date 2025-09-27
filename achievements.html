@@ -157,6 +157,7 @@
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
             will-change: transform;
+            cursor: pointer;
         }
 
         .achievement-card:hover {
@@ -384,6 +385,125 @@
             visibility: visible;
         }
 
+        /* Certificate badge */
+        .certificate-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Achievement modal */
+        .achievement-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .achievement-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .achievement-modal-content {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-modal.active .achievement-modal-content {
+            transform: scale(1);
+        }
+
+        .achievement-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .achievement-modal-body {
+            padding: 30px;
+        }
+
+        .achievement-modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .achievement-modal-date {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .achievement-modal-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .achievement-modal-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .achievement-modal-skills {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .achievement-modal-verify {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-modal-verify:hover {
+            transform: translateY(-3px);
+        }
+
         /* Light theme adjustments */
         body.light-theme .timeline-content::after {
             background: var(--bg-primary);
@@ -391,6 +511,10 @@
 
         body.light-theme .timeline-dot {
             box-shadow: 0 0 0 4px var(--bg-primary);
+        }
+
+        body.light-theme .achievement-modal-content {
+            background: var(--bg-primary);
         }
 
         /* Responsive adjustments */
@@ -416,6 +540,19 @@
             
             .timeline-content::after {
                 display: none;
+            }
+
+            .achievement-modal-content {
+                width: 95%;
+                max-height: 95vh;
+            }
+            
+            .achievement-modal-body {
+                padding: 20px;
+            }
+            
+            .achievement-modal-title {
+                font-size: 24px;
             }
         }
     </style>
@@ -495,32 +632,8 @@
                     My <span class="gradient-text">Achievements</span>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    A timeline of my professional milestones and accomplishments
+                    Recognitions and accomplishments in my journey
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="pb-20">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="stats-card glow-on-hover" data-aos="fade-up">
-                    <div class="stats-number">50+</div>
-                    <div class="stats-label">Projects Completed</div>
-                </div>
-                <div class="stats-card glow-on-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stats-number">15+</div>
-                    <div class="stats-label">Awards & Recognitions</div>
-                </div>
-                <div class="stats-card glow-on-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stats-number">10+</div>
-                    <div class="stats-label">Publications</div>
-                </div>
-                <div class="stats-card glow-on-hover" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stats-number">100%</div>
-                    <div class="stats-label">Client Satisfaction</div>
-                </div>
             </div>
         </div>
     </section>
@@ -529,75 +642,43 @@
     <section class="pb-20">
         <div class="container mx-auto px-4 md:px-6">
             <div class="timeline">
-                <!-- Achievement 1 -->
+                <!-- Achievement 1: VARNAM 2025 -->
                 <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">May 2023</div>
-                        <h3 class="timeline-title">Best UI/UX Design Award</h3>
+                        <div class="timeline-date">January - March 2025</div>
+                        <h3 class="timeline-title">VARNAM 2025 National Painting Competition</h3>
                         <p class="timeline-description">
-                            Received the "Best UI/UX Design Award" at the National Design Competition for the E-commerce Revolution project.
+                            Successfully participated in the VARNAM 2025 National Level Painting Competition. Recognized for artistic talent and creativity in the 15-17 age category from Tamil Nadu, Salem.
                         </p>
+                        <div class="flex flex-wrap mt-3">
+                            <span class="certificate-badge bg-red-600/20 text-red-400">Painting</span>
+                            <span class="certificate-badge bg-yellow-600/20 text-yellow-400">Art Competition</span>
+                            <span class="certificate-badge bg-purple-600/20 text-purple-400">National Level</span>
+                        </div>
+                        <button class="view-achievement-btn mt-3 text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button" data-achievement="varnam">
+                            View Certificate
+                        </button>
                     </div>
                 </div>
 
-                <!-- Achievement 2 -->
+                <!-- Achievement 2: JACKHI Tamil Speaker -->
                 <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">March 2023</div>
-                        <h3 class="timeline-title">Featured in Design Magazine</h3>
+                        <div class="timeline-date">2025</div>
+                        <h3 class="timeline-title">JACKHI Tamil Speaker Recognition</h3>
                         <p class="timeline-description">
-                            The MedConnect Platform project was featured in "Design Innovators" magazine as one of the top 10 healthcare designs of the year.
+                            Recognized as a talented Tamil speaker and featured in the JACKHI Book of Talents. This achievement highlights exceptional public speaking skills and mastery of the Tamil language, with official certification including founder's signature.
                         </p>
-                    </div>
-                </div>
-
-                <!-- Achievement 3 -->
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">January 2023</div>
-                        <h3 class="timeline-title">Speaker at Design Conference</h3>
-                        <p class="timeline-description">
-                            Invited as a guest speaker at the International Design Conference to present on "The Future of AI in UI/UX Design".
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Achievement 4 -->
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">November 2022</div>
-                        <h3 class="timeline-title">Published Research Paper</h3>
-                        <p class="timeline-description">
-                            Co-authored and published a research paper on "User-Centered Design Approaches for IoT Applications" in the International Journal of Design.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Achievement 5 -->
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">September 2022</div>
-                        <h3 class="timeline-title">Hackathon Winner</h3>
-                        <p class="timeline-description">
-                            Led the team to first place in the National FinTech Hackathon with the FinTech Dashboard project.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Achievement 6 -->
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">July 2022</div>
-                        <h3 class="timeline-title">UI/UX Certification</h3>
-                        <p class="timeline-description">
-                            Obtained Advanced UI/UX Design Certification from the Design Institute with distinction.
-                        </p>
+                        <div class="flex flex-wrap mt-3">
+                            <span class="certificate-badge bg-purple-600/20 text-purple-400">Tamil Speaking</span>
+                            <span class="certificate-badge bg-blue-600/20 text-blue-400">Public Speaking</span>
+                            <span class="certificate-badge bg-green-600/20 text-green-400">Talent Recognition</span>
+                        </div>
+                        <button class="view-achievement-btn mt-3 text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button" data-achievement="jackhi">
+                            View Certificate
+                        </button>
                     </div>
                 </div>
             </div>
@@ -612,85 +693,65 @@
                     Featured <span class="gradient-text">Achievements</span>
                 </h2>
                 <p class="text-lg text-gray-400 max-w-2xl mx-auto">
-                    Highlighting some of my most significant accomplishments
+                    Highlighting my most significant accomplishments
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Achievement Card 1 -->
-                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Achievement Card 1: VARNAM 2025 -->
+                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-achievement="varnam">
                     <div class="achievement-icon">
-                        <i class="fas fa-trophy"></i>
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Design Excellence Award</h3>
+                    <h3 class="text-xl font-bold mb-3">VARNAM 2025 Painting Competition</h3>
                     <p class="text-gray-400 mb-4">
-                        Recognized for outstanding design work that combines aesthetic excellence with functional innovation.
+                        National level recognition in the VARNAM 2025 painting competition, showcasing artistic talent and creativity among peers across India.
                     </p>
-                    <div class="text-sm text-gray-500">May 2023</div>
+                    <div class="flex flex-wrap mb-3">
+                        <span class="certificate-badge bg-red-600/20 text-red-400">Painting</span>
+                        <span class="certificate-badge bg-yellow-600/20 text-yellow-400">Art Competition</span>
+                    </div>
+                    <div class="text-sm text-gray-500">January - March 2025</div>
                 </div>
 
-                <!-- Achievement Card 2 -->
-                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="100">
+                <!-- Achievement Card 2: JACKHI Tamil Speaker -->
+                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="100" data-achievement="jackhi">
                     <div class="achievement-icon">
                         <i class="fas fa-microphone"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Conference Speaker</h3>
+                    <h3 class="text-xl font-bold mb-3">JACKHI Tamil Speaker</h3>
                     <p class="text-gray-400 mb-4">
-                        Invited to speak at multiple international conferences on the future of UI/UX design and emerging technologies.
+                        Recognized as a talented Tamil speaker and featured in the prestigious JACKHI Book of Talents, celebrating exceptional linguistic abilities and public speaking skills.
                     </p>
-                    <div class="text-sm text-gray-500">January 2023</div>
-                </div>
-
-                <!-- Achievement Card 3 -->
-                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="achievement-icon">
-                        <i class="fas fa-newspaper"></i>
+                    <div class="flex flex-wrap mb-3">
+                        <span class="certificate-badge bg-purple-600/20 text-purple-400">Tamil Speaking</span>
+                        <span class="certificate-badge bg-blue-600/20 text-blue-400">Public Speaking</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Published Author</h3>
-                    <p class="text-gray-400 mb-4">
-                        Authored multiple articles and research papers on design methodologies and user experience best practices.
-                    </p>
-                    <div class="text-sm text-gray-500">November 2022</div>
-                </div>
-
-                <!-- Achievement Card 4 -->
-                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="300">
-                    <div class="achievement-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Team Leadership</h3>
-                    <p class="text-gray-400 mb-4">
-                        Successfully led cross-functional teams to deliver complex design projects on time and within budget.
-                    </p>
-                    <div class="text-sm text-gray-500">September 2022</div>
-                </div>
-
-                <!-- Achievement Card 5 -->
-                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="400">
-                    <div class="achievement-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Innovation Award</h3>
-                    <p class="text-gray-400 mb-4">
-                        Recognized for innovative approaches to solving complex design challenges with creative solutions.
-                    </p>
-                    <div class="text-sm text-gray-500">July 2022</div>
-                </div>
-
-                <!-- Achievement Card 6 -->
-                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="500">
-                    <div class="achievement-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Professional Certification</h3>
-                    <p class="text-gray-400 mb-4">
-                        Obtained multiple professional certifications in UI/UX design, frontend development, and project management.
-                    </p>
-                    <div class="text-sm text-gray-500">May 2022</div>
+                    <div class="text-sm text-gray-500">2025</div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Achievement Detail Modal -->
+    <div id="achievement-modal" class="achievement-modal">
+        <div class="achievement-modal-content">
+            <div class="achievement-modal-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <div class="achievement-modal-body">
+                <h2 id="modal-title" class="achievement-modal-title"></h2>
+                <div id="modal-date" class="achievement-modal-date"></div>
+                <div id="modal-description" class="achievement-modal-description"></div>
+                <img id="modal-image" src="" alt="" class="achievement-modal-image">
+                <div id="modal-skills" class="achievement-modal-skills"></div>
+                <a id="modal-verify" href="#" target="_blank" class="achievement-modal-verify">Verify Certificate</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="py-6 md:py-8 border-t border-gray-800">
@@ -802,6 +863,99 @@
                 sunIcon.classList.remove('hidden');
                 moonIcon.classList.add('hidden');
                 localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Achievement modal
+        const achievementModal = document.getElementById('achievement-modal');
+        const modalClose = document.querySelector('.achievement-modal-close');
+        const viewAchievementBtns = document.querySelectorAll('.view-achievement-btn');
+        const achievementCards = document.querySelectorAll('.achievement-card');
+
+        // Achievement data
+        const achievementsData = {
+            varnam: {
+                title: 'VARNAM 2025 National Painting Competition',
+                date: 'January - March 2025',
+                image: 'https://z-cdn-media.chatglm.cn/files/a8cc7348-19f9-4757-9af7-c06ea9299333_Screenshot_20250927_164201_LinkedIn.jpg?auth_key=1790509792-85614f389311411cb95c44b99b9861f0-0-a22bcad0ad2d817f6da80e371244eb7a',
+                description: 'Successfully participated in the VARNAM 2025 National Level Painting Competition. This prestigious competition recognizes artistic talent from across India, with participants divided into different age categories. Representing Tamil Nadu, Salem in the 15-17 age group, this achievement showcases exceptional artistic skills and creativity. The certificate features a colorful design with personal photo and official recognition of participation.',
+                skills: [
+                    { name: 'Painting', color: 'red' },
+                    { name: 'Art Competition', color: 'yellow' },
+                    { name: 'National Level', color: 'purple' }
+                ],
+                verifyUrl: '#'
+            },
+            jackhi: {
+                title: 'JACKHI Tamil Speaker Recognition',
+                date: '2025',
+                image: 'https://z-cdn-media.chatglm.cn/files/b4bd22bb-284a-4fd0-9dea-925663eced25_Screenshot_20250927_164147_LinkedIn.jpg?auth_key=1790509792-4591cadb337d40d8a9ac9cf5b3695dc7-0-27eb87af2ec84efc939e07cb27c35b3f',
+                description: 'Recognized as a talented Tamil speaker and featured in the prestigious JACKHI Book of Talents. This achievement highlights exceptional public speaking skills and mastery of the Tamil language. The purple-themed certificate includes personal photo and official certification with founder Fashan\'s signature. This recognition is part of a program that celebrates exceptional talents across various fields, with special emphasis on linguistic abilities and cultural preservation through language.',
+                skills: [
+                    { name: 'Tamil Speaking', color: 'purple' },
+                    { name: 'Public Speaking', color: 'blue' },
+                    { name: 'Talent Recognition', color: 'green' }
+                ],
+                verifyUrl: '#'
+            }
+        };
+
+        // Function to open achievement modal
+        function openAchievementModal(achievementId) {
+            const achievement = achievementsData[achievementId];
+            
+            if (achievement) {
+                // Populate modal with achievement data
+                document.getElementById('modal-title').textContent = achievement.title;
+                document.getElementById('modal-date').textContent = achievement.date;
+                document.getElementById('modal-description').textContent = achievement.description;
+                document.getElementById('modal-image').src = achievement.image;
+                document.getElementById('modal-verify').href = achievement.verifyUrl;
+                
+                // Populate skills
+                const skillsContainer = document.getElementById('modal-skills');
+                skillsContainer.innerHTML = '';
+                achievement.skills.forEach(skill => {
+                    const skillElement = document.createElement('span');
+                    skillElement.className = `certificate-badge bg-${skill.color}-600/20 text-${skill.color}-400`;
+                    skillElement.textContent = skill.name;
+                    skillsContainer.appendChild(skillElement);
+                });
+                
+                // Show modal
+                achievementModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Add click event to view achievement buttons
+        viewAchievementBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const achievementId = this.getAttribute('data-achievement');
+                openAchievementModal(achievementId);
+            });
+        });
+
+        // Add click event to achievement cards
+        achievementCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const achievementId = this.getAttribute('data-achievement');
+                openAchievementModal(achievementId);
+            });
+        });
+
+        // Close achievement modal
+        modalClose.addEventListener('click', function() {
+            achievementModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal when clicking outside content
+        achievementModal.addEventListener('click', function(e) {
+            if (e.target === achievementModal) {
+                achievementModal.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
     </script>
