@@ -3,42 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SJ Kanish - UI/UX Portfolio | Developed by AJ STUDIOZ</title>
-    <meta name="description" content="Professional UI/UX Designer and Developer specializing in user-centered design solutions.">
-    <meta name="keywords" content="UI/UX Designer, Frontend Developer, Portfolio, Web Design, User Experience">
-    <meta name="author" content="SJ Kanish">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="SJ Kanish - UI/UX Portfolio">
-    <meta property="og:description" content="Professional UI/UX Designer and Developer specializing in user-centered design solutions.">
-    <meta property="og:image" content="https://example.com/og-image.jpg">
-    <meta property="og:url" content="https://example.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SJ Kanish - UI/UX Portfolio">
-    <meta name="twitter:description" content="Professional UI/UX Designer and Developer specializing in user-centered design solutions.">
-    <meta name="twitter:image" content="https://example.com/twitter-image.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <!-- Preconnect for performance -->
+    <title>SJ Kanish - Social Activist Portfolio | Developed by AJ STUDIOZ</title>
+    <meta name="description" content="Social activist and community leader dedicated to creating positive change in society.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -53,10 +26,6 @@
             --bg-primary: #0c0c0c;
             --bg-secondary: #1a1a1a;
             --bg-tertiary: #2a2a2a;
-            --accent-color: #667eea;
-            --success-color: #4CAF50;
-            --warning-color: #FFC107;
-            --error-color: #F44336;
         }
 
         /* Light theme variables */
@@ -72,7 +41,6 @@
 
         * {
             scroll-behavior: smooth;
-            box-sizing: border-box;
         }
 
         body {
@@ -87,7 +55,7 @@
             background: var(--light-gradient);
         }
 
-        /* Loading Screen Enhancements */
+        /* Loading Screen */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -96,7 +64,6 @@
             height: 100%;
             background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 10000;
@@ -113,26 +80,21 @@
             will-change: transform;
         }
 
-        .loading-progress {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .loading-progress-bar {
-            height: 100%;
-            background: var(--primary-gradient);
-            width: 0%;
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            z-index: 1000;
+            transition: width 0.1s ease;
+            will-change: width;
         }
 
         /* Glass effect */
@@ -202,7 +164,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Cursor trail */
+        /* Cursor trail (hidden on mobile) */
         .cursor-trail {
             position: fixed;
             pointer-events: none;
@@ -240,14 +202,14 @@
             100% { left: 100%; }
         }
 
-        /* Project card */
-        .project-card {
+        /* Initiative card */
+        .initiative-card {
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
             will-change: transform;
         }
 
-        .project-card:hover {
+        .initiative-card:hover {
             transform: translateY(-20px) rotateX(5deg);
         }
 
@@ -316,18 +278,6 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Progress bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--primary-gradient);
-            z-index: 1000;
-            transition: width 0.1s ease;
-            will-change: width;
-        }
-
         /* Enhanced button styles */
         .enhanced-button {
             position: relative;
@@ -352,7 +302,7 @@
             left: 100%;
         }
 
-        /* Glowing effect for project cards */
+        /* Glowing effect for initiative cards */
         .glow-on-hover {
             transition: all 0.3s ease;
             will-change: box-shadow;
@@ -394,31 +344,6 @@
             0%, 100% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(30px, -30px) scale(1.1); }
             66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        /* Hardware project specific styles */
-        .hardware-icon {
-            display: inline-block;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(76, 175, 80, 0.2);
-            color: #4CAF50;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
         }
 
         /* Profile image adjustments */
@@ -542,79 +467,14 @@
             background-color: #ffffff;
         }
 
-        /* Notification styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            border-radius: 8px;
-            color: white;
-            font-weight: 500;
-            z-index: 10000;
-            transform: translateX(120%);
-            transition: transform 0.3s ease;
-            max-width: 300px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .notification.show {
-            transform: translateX(0);
-        }
-
-        .notification.success {
-            background-color: var(--success-color);
-        }
-
-        .notification.error {
-            background-color: var(--error-color);
-        }
-
-        .notification.warning {
-            background-color: var(--warning-color);
-        }
-
-        .notification.info {
-            background-color: var(--accent-color);
-        }
-
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-        }
-
         /* Testimonial styles */
         .testimonial-card {
             position: relative;
             padding: 25px;
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
             border: 1px solid var(--glass-border);
+            border-radius: 15px;
             transition: all 0.3s ease;
         }
 
@@ -665,266 +525,125 @@
             color: var(--text-secondary);
         }
 
-        /* Timeline styles */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: var(--primary-gradient);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-            width: 50%;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 30px;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 30px;
-        }
-
-        .timeline-content {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 20px;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: -10px;
-            width: 20px;
-            height: 20px;
-            background: var(--bg-secondary);
-            border-top: 2px solid var(--glass-border);
-            border-right: 2px solid var(--glass-border);
-            transform: rotate(-45deg);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: -10px;
-            width: 20px;
-            height: 20px;
-            background: var(--bg-secondary);
-            border-top: 2px solid var(--glass-border);
-            border-left: 2px solid var(--glass-border);
-            transform: rotate(45deg);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            box-shadow: 0 0 0 4px var(--bg-secondary);
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -10px;
-        }
-
-        .timeline-date {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 5px;
-        }
-
-        .timeline-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .timeline-description {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        /* Blog post styles */
-        .blog-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .blog-content {
-            padding: 20px;
-        }
-
-        .blog-date {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-        }
-
-        .blog-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .blog-excerpt {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .blog-read-more {
+        /* Initiative icon */
+        .initiative-icon {
             display: inline-block;
-            color: var(--accent-color);
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .blog-read-more:hover {
-            text-decoration: underline;
-        }
-
-        /* Certificate styles */
-        .certificate-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .certificate-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .certificate-content {
-            padding: 20px;
-        }
-
-        .certificate-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .certificate-issuer {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-        }
-
-        .certificate-date {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-        }
-
-        .certificate-verify {
-            display: inline-block;
-            color: var(--accent-color);
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .certificate-verify:hover {
-            text-decoration: underline;
-        }
-
-        /* Achievement styles */
-        .achievement-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .achievement-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
-            font-size: 24px;
-            color: white;
+            font-size: 40px;
+            margin-bottom: 20px;
         }
 
-        .achievement-title {
-            font-size: 18px;
+        .initiative-status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .achievement-description {
-            font-size: 14px;
-            color: var(--text-secondary);
             margin-bottom: 15px;
-            line-height: 1.6;
         }
 
-        .achievement-date {
+        /* Stats card */
+        .stats-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-label {
             font-size: 14px;
             color: var(--text-secondary);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background-color: #4CAF50;
+        }
+
+        .notification.error {
+            background-color: #F44336;
+        }
+
+        .notification.warning {
+            background-color: #FFC107;
+        }
+
+        .notification.info {
+            background-color: #667eea;
         }
 
         /* Newsletter styles */
@@ -980,224 +699,6 @@
             opacity: 0.9;
         }
 
-        /* Chatbot styles */
-        .chatbot {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .chatbot:hover {
-            transform: scale(1.1);
-        }
-
-        .chatbot-window {
-            position: fixed;
-            bottom: 170px;
-            right: 30px;
-            width: 350px;
-            height: 450px;
-            background: var(--bg-secondary);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            z-index: 998;
-        }
-
-        .chatbot-window.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .chatbot-header {
-            padding: 15px;
-            background: var(--primary-gradient);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chatbot-title {
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .chatbot-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .chatbot-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-        }
-
-        .chatbot-message {
-            margin-bottom: 15px;
-            display: flex;
-        }
-
-        .chatbot-message.user {
-            justify-content: flex-end;
-        }
-
-        .chatbot-message-bubble {
-            max-width: 80%;
-            padding: 10px 15px;
-            border-radius: 15px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .chatbot-message.bot .chatbot-message-bubble {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px 15px 15px 0;
-        }
-
-        .chatbot-message.user .chatbot-message-bubble {
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 15px 15px 0 15px;
-        }
-
-        .chatbot-input-container {
-            padding: 15px;
-            border-top: 1px solid var(--glass-border);
-            display: flex;
-        }
-
-        .chatbot-input {
-            flex: 1;
-            padding: 10px 15px;
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            font-size: 14px;
-        }
-
-        .chatbot-send {
-            margin-left: 10px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .chatbot-send:hover {
-            opacity: 0.9;
-        }
-
-        /* Search styles */
-        .search-container {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 15px 12px 45px;
-            border: 1px solid var(--glass-border);
-            border-radius: 25px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            color: var(--text-primary);
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
-        }
-
-        .search-results {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            margin-top: 10px;
-            background: var(--bg-secondary);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-height: 300px;
-            overflow-y: auto;
-            z-index: 100;
-            display: none;
-        }
-
-        .search-results.active {
-            display: block;
-        }
-
-        .search-result-item {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--glass-border);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-
-        .search-result-item:hover {
-            background: var(--glass-bg);
-        }
-
-        .search-result-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .search-result-description {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-title {
@@ -1209,11 +710,11 @@
                 font-size: 2.5rem !important;
             }
             
-            .project-card {
+            .initiative-card {
                 transform: none !important;
             }
             
-            .project-card:hover {
+            .initiative-card:hover {
                 transform: translateY(-10px) !important;
             }
             
@@ -1229,33 +730,17 @@
                 display: none;
             }
             
-            .timeline::before {
-                left: 30px;
+            .newsletter-form {
+                flex-direction: column;
             }
             
-            .timeline-item {
-                width: 100%;
-                padding-left: 60px !important;
-                padding-right: 0 !important;
-                text-align: left !important;
+            .newsletter-input {
+                border-radius: 8px;
+                margin-bottom: 10px;
             }
             
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-dot {
-                left: 20px !important;
-            }
-            
-            .timeline-content::after {
-                display: none;
-            }
-            
-            .chatbot-window {
-                width: calc(100% - 60px);
-                right: 30px;
-                left: 30px;
+            .newsletter-button {
+                border-radius: 8px;
             }
         }
     </style>
@@ -1266,10 +751,7 @@
         <div class="text-center">
             <div class="loading-animation mx-auto mb-4"></div>
             <div class="rgb-animation text-2xl font-bold mb-2">SJ KANISH</div>
-            <div class="text-gray-400 text-sm mb-4">Crafted by AJ STUDIOZ</div>
-            <div class="loading-progress">
-                <div id="loading-progress-bar" class="loading-progress-bar"></div>
-            </div>
+            <div class="text-gray-400 text-sm">Portfolio by AJ STUDIOZ</div>
         </div>
     </div>
 
@@ -1312,12 +794,11 @@
         <div class="mobile-menu-links">
             <a href="#home" class="mobile-menu-link">Home</a>
             <a href="#about" class="mobile-menu-link">About</a>
-            <a href="projects.html" class="mobile-menu-link">Projects</a>
-            <a href="#current-project" class="mobile-menu-link">Current Project</a>
+            <a href="initiatives.html" class="mobile-menu-link">Initiatives</a>
+            <a href="#current-initiative" class="mobile-menu-link">Current Initiative</a>
             <a href="achievements.html" class="mobile-menu-link">Achievements</a>
             <a href="certificates.html" class="mobile-menu-link">Certificates</a>
             <a href="#skills" class="mobile-menu-link">Skills</a>
-            <a href="#blog" class="mobile-menu-link">Blog</a>
             <a href="#contact" class="mobile-menu-link">Contact</a>
         </div>
     </div>
@@ -1328,27 +809,21 @@
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-3">
                     <div class="rgb-animation text-xl md:text-2xl font-black">SJ KANISH</div>
-                    <div class="text-xs text-gray-400 hidden md:block">UI/UX Designer</div>
+                    <div class="text-xs text-gray-400 hidden md:block">Social Activist</div>
                 </div>
                 
                 <div class="hidden lg:flex items-center space-x-6 md:space-x-8">
                     <a href="#home" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Home</a>
                     <a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">About</a>
-                    <a href="projects.html" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Projects</a>
-                    <a href="#current-project" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Current Project</a>
+                    <a href="initiatives.html" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Initiatives</a>
+                    <a href="#current-initiative" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Current Initiative</a>
                     <a href="achievements.html" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Achievements</a>
                     <a href="certificates.html" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Certificates</a>
                     <a href="#skills" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Skills</a>
-                    <a href="#blog" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Blog</a>
                     <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Contact</a>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <button id="search-toggle" class="p-2 rounded-full glass-effect hover:bg-white/20 transition-all duration-300">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </button>
                     <button id="theme-toggle" class="p-2 rounded-full glass-effect hover:bg-white/20 transition-all duration-300">
                         <svg class="w-5 h-5 sun-icon" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
@@ -1365,19 +840,6 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Search Bar (Hidden by default) -->
-        <div id="search-bar" class="hidden container mx-auto px-4 md:px-6 pb-4">
-            <div class="search-container">
-                <input type="text" id="search-input" class="search-input" placeholder="Search...">
-                <svg class="search-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-                <div id="search-results" class="search-results">
-                    <!-- Search results will be populated here -->
-                </div>
-            </div>
-        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -1386,14 +848,14 @@
         <div class="container mx-auto px-4 md:px-6 text-center relative z-10">
             <div data-aos="fade-up" data-aos-delay="200">
                 <h1 class="text-4xl md:text-6xl lg:text-8xl font-black mb-6 leading-tight hero-title">
-                    <span class="gradient-text">DESIGN</span><br>
-                    <span class="text-white typewriter">INNOVATION</span>
+                    <span class="gradient-text">SOCIAL</span><br>
+                    <span class="text-white typewriter">CHANGE</span>
                 </h1>
                 <p class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                    Crafting exceptional digital experiences through user-centered design and cutting-edge technology
+                    Creating positive impact through community engagement and social activism
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="projects.html" class="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 pulse-glow enhanced-button">
+                    <a href="initiatives.html" class="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 pulse-glow enhanced-button">
                         View My Work
                     </a>
                     <a href="#contact" class="px-6 py-3 md:px-8 md:py-4 glass-effect rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 enhanced-button">
@@ -1421,7 +883,7 @@
                             </div>
                         </div>
                         <div class="absolute -top-4 -right-4 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-full flex items-center justify-center animate-pulse">
-                            <span class="text-xl md:text-2xl">🎨</span>
+                            <span class="text-xl md:text-2xl">🤝</span>
                         </div>
                     </div>
                 </div>
@@ -1432,33 +894,28 @@
                     </h2>
                     <div class="space-y-4 md:space-y-6 text-gray-300 text-base md:text-lg leading-relaxed">
                         <p>
-                            I'm a passionate <strong class="text-white">2nd year CSE AIML student</strong> at 
-                            <strong class="text-white">Sona College of Technology</strong>, specializing in creating 
-                            intuitive and impactful digital experiences that bridge the gap between technology and human needs.
+                            I'm a passionate <strong class="text-white">social activist</strong> and community leader dedicated to creating positive change in society. My work focuses on empowering marginalized communities and advocating for social justice.
                         </p>
                         <p>
-                            My unique background in AI and machine learning allows me to approach design challenges with 
-                            both creative vision and technical precision, resulting in solutions that are not only beautiful 
-                            but also intelligent and scalable.
+                            Through grassroots organizing and community engagement, I strive to address pressing social issues and create sustainable solutions that improve people's lives. My approach combines empathy, strategic thinking, and collaborative action.
                         </p>
                         <p>
-                            I believe in the power of user-centered design to transform complex problems into elegant, 
-                            accessible solutions that create meaningful connections between brands and their audiences.
+                            I believe in the power of collective action to transform communities and create a more equitable society. Every initiative I undertake is guided by principles of inclusivity, transparency, and sustainable impact.
                         </p>
                     </div>
                     
                     <div class="grid grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12">
                         <div class="text-center glass-effect rounded-2xl p-4 md:p-6 glow-on-hover">
-                            <div class="text-2xl md:text-3xl font-black gradient-text">50+</div>
-                            <div class="text-xs md:text-sm text-gray-400">Projects</div>
+                            <div class="text-2xl md:text-3xl font-black gradient-text">15+</div>
+                            <div class="text-xs md:text-sm text-gray-400">Initiatives</div>
                         </div>
                         <div class="text-center glass-effect rounded-2xl p-4 md:p-6 glow-on-hover">
-                            <div class="text-2xl md:text-3xl font-black gradient-text">2+</div>
+                            <div class="text-2xl md:text-3xl font-black gradient-text">5+</div>
                             <div class="text-xs md:text-sm text-gray-400">Years</div>
                         </div>
                         <div class="text-center glass-effect rounded-2xl p-4 md:p-6 glow-on-hover">
-                            <div class="text-2xl md:text-3xl font-black gradient-text">100%</div>
-                            <div class="text-xs md:text-sm text-gray-400">Satisfaction</div>
+                            <div class="text-2xl md:text-3xl font-black gradient-text">1000+</div>
+                            <div class="text-xs md:text-sm text-gray-400">Lives Impacted</div>
                         </div>
                     </div>
                     
@@ -1475,19 +932,19 @@
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section id="featured-projects" class="py-20 md:py-32 relative">
+    <!-- Featured Initiatives Section -->
+    <section id="featured-initiatives" class="py-20 md:py-32 relative">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-12 md:mb-20" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-black mb-4 md:mb-6">
-                    Featured <span class="gradient-text">Projects</span>
+                    Featured <span class="gradient-text">Initiatives</span>
                 </h2>
                 <p class="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    Showcasing innovative solutions that combine aesthetic excellence with functional design
+                    Showcasing projects that create meaningful impact in communities
                 </p>
                 <div class="mt-6">
-                    <a href="projects.html" class="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm md:text-base enhanced-button">
-                        View All Projects
+                    <a href="initiatives.html" class="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm md:text-base enhanced-button">
+                        View All Initiatives
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                         </svg>
@@ -1496,21 +953,21 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="glass-effect rounded-2xl overflow-hidden project-card glow-on-hover" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://placehold.co/600x400/1a1a1a/667eea?text=E-commerce+Platform" alt="E-commerce Project" class="w-full h-48 object-cover">
+                <!-- Initiative 1 -->
+                <div class="glass-effect rounded-2xl overflow-hidden initiative-card glow-on-hover" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://placehold.co/600x400/1a1a1a/667eea?text=Education+Initiative" alt="Education Initiative" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-white">E-commerce Revolution</h3>
+                            <h3 class="text-xl font-bold text-white">Education for All</h3>
                             <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">UI/UX</span>
-                                <span class="px-2 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Research</span>
+                                <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">Education</span>
+                                <span class="px-2 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Youth</span>
                             </div>
                         </div>
                         <p class="text-gray-400 mb-4 text-sm leading-relaxed">
-                            Complete redesign of an e-commerce platform resulting in 40% increase in conversion rates.
+                            Providing educational resources and support to underprivileged children in rural communities.
                         </p>
-                        <a href="projects.html#project1" class="flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button">
+                        <a href="initiatives.html#initiative1" class="flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button">
                             View Details
                             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -1519,21 +976,21 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="glass-effect rounded-2xl overflow-hidden project-card glow-on-hover" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://placehold.co/600x400/1a1a1a/764ba2?text=Healthcare+App" alt="Healthcare Project" class="w-full h-48 object-cover">
+                <!-- Initiative 2 -->
+                <div class="glass-effect rounded-2xl overflow-hidden initiative-card glow-on-hover" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://placehold.co/600x400/1a1a1a/764ba2?text=Healthcare+Initiative" alt="Healthcare Initiative" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-white">MedConnect Platform</h3>
+                            <h3 class="text-xl font-bold text-white">Community Health</h3>
                             <div class="flex space-x-2">
                                 <span class="px-2 py-1 bg-green-600/20 text-green-400 rounded-full text-xs">Healthcare</span>
-                                <span class="px-2 py-1 bg-orange-600/20 text-orange-400 rounded-full text-xs">Mobile</span>
+                                <span class="px-2 py-1 bg-orange-600/20 text-orange-400 rounded-full text-xs">Rural</span>
                             </div>
                         </div>
                         <p class="text-gray-400 mb-4 text-sm leading-relaxed">
-                            Patient-centered healthcare platform with telemedicine capabilities and AI-powered assessment.
+                            Improving access to healthcare services in underserved communities through mobile clinics and health education.
                         </p>
-                        <a href="projects.html#project2" class="flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors text-sm enhanced-button">
+                        <a href="initiatives.html#initiative2" class="flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors text-sm enhanced-button">
                             View Details
                             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -1542,21 +999,21 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="glass-effect rounded-2xl overflow-hidden project-card glow-on-hover" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://placehold.co/600x400/1a1a1a/f5576c?text=FinTech+Dashboard" alt="FinTech Project" class="w-full h-48 object-cover">
+                <!-- Initiative 3 -->
+                <div class="glass-effect rounded-2xl overflow-hidden initiative-card glow-on-hover" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://placehold.co/600x400/1a1a1a/f5576c?text=Environment+Initiative" alt="Environment Initiative" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-white">FinTech Dashboard</h3>
+                            <h3 class="text-xl font-bold text-white">Green Earth</h3>
                             <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-xs">FinTech</span>
-                                <span class="px-2 py-1 bg-red-600/20 text-red-400 rounded-full text-xs">Analytics</span>
+                                <span class="px-2 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-xs">Environment</span>
+                                <span class="px-2 py-1 bg-red-600/20 text-red-400 rounded-full text-xs">Sustainability</span>
                             </div>
                         </div>
                         <p class="text-gray-400 mb-4 text-sm leading-relaxed">
-                            Advanced financial dashboard with real-time analytics and predictive investment insights.
+                            Environmental conservation initiatives focusing on reforestation and sustainable practices.
                         </p>
-                        <a href="projects.html#project3" class="flex items-center text-pink-400 font-semibold hover:text-pink-300 transition-colors text-sm enhanced-button">
+                        <a href="initiatives.html#initiative3" class="flex items-center text-pink-400 font-semibold hover:text-pink-300 transition-colors text-sm enhanced-button">
                             View Details
                             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -1568,15 +1025,15 @@
         </div>
     </section>
 
-    <!-- Current Project Section -->
-    <section id="current-project" class="py-20 md:py-32 relative">
+    <!-- Current Initiative Section -->
+    <section id="current-initiative" class="py-20 md:py-32 relative">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-12 md:mb-20" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-black mb-4 md:mb-6">
-                    Current <span class="gradient-text">Project</span>
+                    Current <span class="gradient-text">Initiative</span>
                 </h2>
                 <p class="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    Exploring new frontiers in technology and design
+                    Focusing on creating sustainable impact in communities
                 </p>
             </div>
 
@@ -1584,47 +1041,40 @@
                 <div class="glass-effect rounded-2xl md:rounded-3xl p-6 md:p-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
                         <div class="flex-shrink-0">
-                            <div class="hardware-icon">🔧</div>
+                            <div class="initiative-icon">🌱</div>
                         </div>
                         <div class="flex-grow">
-                            <div class="project-status">In Progress</div>
+                            <div class="initiative-status">Active</div>
                             <h3 class="text-2xl md:text-4xl font-black mb-4 md:mb-6">
-                                Tourist Travel <span class="gradient-text">Safety System</span>
+                                Youth Empowerment <span class="gradient-text">Program</span>
                             </h3>
                             <div class="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed">
                                 <p>
-                                    Currently developing a comprehensive Tourist Travel Safety System designed to enhance 
-                                    the safety and security of travelers during their journeys. This innovative system 
-                                    integrates hardware components with user-friendly interfaces to provide real-time 
-                                    assistance and emergency support.
+                                    Currently leading a comprehensive Youth Empowerment Program designed to provide young people with the skills, resources, and support they need to become agents of change in their communities.
                                 </p>
                                 <p>
-                                    <strong class="text-white">My Role:</strong> Hardware Development - Responsible for designing, 
-                                    implementing, and testing the physical components that form the backbone of the system, 
-                                    ensuring reliability and efficiency in various travel scenarios.
+                                    <strong class="text-white">My Role:</strong> Program Coordinator - Responsible for program design, implementation, and evaluation. Working closely with community leaders, educational institutions, and youth organizations to create meaningful opportunities for young people.
                                 </p>
                                 <p>
-                                    The project involves creating wearable devices with GPS tracking, emergency alert 
-                                    mechanisms, and environmental sensors that can detect potential hazards and 
-                                    automatically notify authorities when needed.
+                                    The program includes mentorship, skills development workshops, community service projects, and leadership training. Our goal is to empower 500+ youth across 10 communities over the next two years.
                                 </p>
                             </div>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 md:mt-8">
                                 <div class="glass-effect rounded-xl p-4 text-center">
-                                    <div class="text-xl md:text-2xl font-bold gradient-text">GPS</div>
-                                    <div class="text-xs md:text-sm text-gray-400">Tracking</div>
+                                    <div class="text-xl md:text-2xl font-bold gradient-text">10+</div>
+                                    <div class="text-xs md:text-sm text-gray-400">Communities</div>
                                 </div>
                                 <div class="glass-effect rounded-xl p-4 text-center">
-                                    <div class="text-xl md:text-2xl font-bold gradient-text">IoT</div>
-                                    <div class="text-xs md:text-sm text-gray-400">Sensors</div>
+                                    <div class="text-xl md:text-2xl font-bold gradient-text">500+</div>
+                                    <div class="text-xs md:text-sm text-gray-400">Youth</div>
                                 </div>
                                 <div class="glass-effect rounded-xl p-4 text-center">
-                                    <div class="text-xl md:text-2xl font-bold gradient-text">Alert</div>
-                                    <div class="text-xs md:text-sm text-gray-400">System</div>
+                                    <div class="text-xl md:text-2xl font-bold gradient-text">20+</div>
+                                    <div class="text-xs md:text-sm text-gray-400">Workshops</div>
                                 </div>
                                 <div class="glass-effect rounded-xl p-4 text-center">
-                                    <div class="text-xl md:text-2xl font-bold gradient-text">Mobile</div>
-                                    <div class="text-xs md:text-sm text-gray-400">Integration</div>
+                                    <div class="text-xl md:text-2xl font-bold gradient-text">50+</div>
+                                    <div class="text-xs md:text-sm text-gray-400">Mentors</div>
                                 </div>
                             </div>
                         </div>
@@ -1639,10 +1089,10 @@
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-12 md:mb-20" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-black mb-4 md:mb-6">
-                    Client <span class="gradient-text">Testimonials</span>
+                    Community <span class="gradient-text">Voices</span>
                 </h2>
                 <p class="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    What people say about my work
+                    What people say about the impact of our work
                 </p>
             </div>
 
@@ -1650,13 +1100,13 @@
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <p class="testimonial-quote">
-                        SJ's design work exceeded our expectations. His attention to detail and user-centered approach resulted in a product that our customers love.
+                        SJ's dedication to community empowerment has transformed our neighborhood. The Youth Empowerment Program has given our children opportunities they never had before.
                     </p>
                     <div class="testimonial-author">
                         <img src="https://placehold.co/100x100/1a1a1a/667eea?text=JD" alt="John Doe">
                         <div class="testimonial-author-info">
                             <h4>John Doe</h4>
-                            <p>CEO, TechCorp</p>
+                            <p>Community Leader</p>
                         </div>
                     </div>
                 </div>
@@ -1664,13 +1114,13 @@
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <p class="testimonial-quote">
-                        Working with SJ was a pleasure. His technical skills combined with his creative vision made our project a huge success.
+                        Working with SJ has been inspiring. Their passion for social change is contagious, and their strategic approach to problem-solving gets real results.
                     </p>
                     <div class="testimonial-author">
                         <img src="https://placehold.co/100x100/1a1a1a/764ba2?text=JS" alt="Jane Smith">
                         <div class="testimonial-author-info">
                             <h4>Jane Smith</h4>
-                            <p>Product Manager, InnovateCo</p>
+                            <p>NGO Partner</p>
                         </div>
                     </div>
                 </div>
@@ -1678,13 +1128,13 @@
                 <!-- Testimonial 3 -->
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <p class="testimonial-quote">
-                        SJ's ability to understand complex requirements and translate them into intuitive designs is unmatched. Highly recommended!
+                        The Education for All initiative has changed my life. I now have access to resources and support that are helping me achieve my dreams.
                     </p>
                     <div class="testimonial-author">
-                        <img src="https://placehold.co/100x100/1a1a1a/f5576c?text=RJ" alt="Robert Johnson">
+                        <img src="https://placehold.co/100x100/1a1a1a/f5576c?text=RJ" alt="Rahul Johnson">
                         <div class="testimonial-author-info">
-                            <h4>Robert Johnson</h4>
-                            <p>CTO, StartupXYZ</p>
+                            <h4>Rahul Johnson</h4>
+                            <p>Program Beneficiary</p>
                         </div>
                     </div>
                 </div>
@@ -1700,85 +1150,39 @@
                     My <span class="gradient-text">Expertise</span>
                 </h2>
                 <p class="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    Combining technical proficiency with creative vision to deliver exceptional results
+                    Skills and competencies that drive my social impact work
                 </p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 md:gap-16">
-                <!-- Technical Skills -->
+                <!-- Community Engagement Skills -->
                 <div data-aos="fade-right">
                     <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center">
                         <span class="w-2 h-6 md:h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full mr-4"></span>
-                        Programming Skills
+                        Community Engagement
                     </h3>
                     <div class="space-y-4 md:space-y-6">
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="font-semibold">C</span>
-                                <span class="text-gray-400">50%</span>
-                            </div>
-                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
-                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 50%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold">Python</span>
-                                <span class="text-gray-400">50%</span>
-                            </div>
-                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
-                                <div class="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style="width: 50%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold">Java</span>
-                                <span class="text-gray-400">30%</span>
-                            </div>
-                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
-                                <div class="h-full bg-gradient-to-r from-yellow-500 to-red-500 rounded-full" style="width: 30%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold">Data Structures & Algorithms</span>
-                                <span class="text-gray-400">40%</span>
-                            </div>
-                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
-                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 40%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Design Skills -->
-                <div data-aos="fade-left">
-                    <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center">
-                        <span class="w-2 h-6 md:h-8 bg-gradient-to-b from-green-500 to-blue-500 rounded-full mr-4"></span>
-                        Design Skills
-                    </h3>
-                    <div class="space-y-4 md:space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold">UI/UX Design</span>
-                                <span class="text-gray-400">95%</span>
-                            </div>
-                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
-                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold">Prototyping</span>
+                                <span class="font-semibold">Grassroots Organizing</span>
                                 <span class="text-gray-400">90%</span>
                             </div>
                             <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
-                                <div class="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style="width: 90%"></div>
+                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 90%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="font-semibold">User Research</span>
+                                <span class="font-semibold">Community Outreach</span>
+                                <span class="text-gray-400">95%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Stakeholder Engagement</span>
                                 <span class="text-gray-400">85%</span>
                             </div>
                             <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
@@ -1787,7 +1191,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="font-semibold">Frontend Development</span>
+                                <span class="font-semibold">Public Speaking</span>
                                 <span class="text-gray-400">80%</span>
                             </div>
                             <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
@@ -1796,104 +1200,86 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Program Management Skills -->
+                <div data-aos="fade-left">
+                    <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center">
+                        <span class="w-2 h-6 md:h-8 bg-gradient-to-b from-green-500 to-blue-500 rounded-full mr-4"></span>
+                        Program Management
+                    </h3>
+                    <div class="space-y-4 md:space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Program Design</span>
+                                <span class="text-gray-400">85%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Project Implementation</span>
+                                <span class="text-gray-400">90%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Monitoring & Evaluation</span>
+                                <span class="text-gray-400">80%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-yellow-500 to-red-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Fundraising</span>
+                                <span class="text-gray-400">75%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Tools & Technologies -->
+            <!-- Tools & Approaches -->
             <div class="mt-12 md:mt-16" data-aos="fade-up">
                 <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center">
                     <span class="w-2 h-6 md:h-8 bg-gradient-to-b from-green-500 to-blue-500 rounded-full mr-4"></span>
-                    Tools & Technologies
+                    Tools & Approaches
                 </h3>
                 <div class="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
                     <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🎨</div>
-                        <div class="text-xs md:text-sm">Figma</div>
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">📊</div>
+                        <div class="text-xs md:text-sm">Data Analysis</div>
                     </div>
                     <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🖌️</div>
-                        <div class="text-xs md:text-sm">Adobe XD</div>
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🤝</div>
+                        <div class="text-xs md:text-sm">Partnership</div>
                     </div>
                     <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">📱</div>
-                        <div class="text-xs md:text-sm">Sketch</div>
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">📣</div>
+                        <div class="text-xs md:text-sm">Advocacy</div>
                     </div>
                     <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">💻</div>
-                        <div class="text-xs md:text-sm">HTML/CSS</div>
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🎓</div>
+                        <div class="text-xs md:text-sm">Training</div>
                     </div>
                     <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">⚛️</div>
-                        <div class="text-xs md:text-sm">React</div>
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">💡</div>
+                        <div class="text-xs md:text-sm">Innovation</div>
                     </div>
                     <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🧠</div>
-                        <div class="text-xs md:text-sm">AI/ML</div>
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🌍</div>
+                        <div class="text-xs md:text-sm">Global Perspective</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 md:py-32 relative">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-12 md:mb-20" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-black mb-4 md:mb-6">
-                    Latest <span class="gradient-text">Blog Posts</span>
-                </h2>
-                <p class="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    Insights, tutorials, and thoughts on design and development
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post 1 -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://placehold.co/600x400/1a1a1a/667eea?text=Blog+Post+1" alt="Blog Post 1" class="blog-image">
-                    <div class="blog-content">
-                        <div class="blog-date">May 15, 2023</div>
-                        <h3 class="blog-title">The Future of UI/UX Design</h3>
-                        <p class="blog-excerpt">
-                            Exploring emerging trends and technologies that are shaping the future of user interface and user experience design.
-                        </p>
-                        <a href="#" class="blog-read-more">Read More</a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 2 -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://placehold.co/600x400/1a1a1a/764ba2?text=Blog+Post+2" alt="Blog Post 2" class="blog-image">
-                    <div class="blog-content">
-                        <div class="blog-date">April 28, 2023</div>
-                        <h3 class="blog-title">Design Systems: A Comprehensive Guide</h3>
-                        <p class="blog-excerpt">
-                            Learn how to create and maintain effective design systems that scale with your organization.
-                        </p>
-                        <a href="#" class="blog-read-more">Read More</a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 3 -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://placehold.co/600x400/1a1a1a/f5576c?text=Blog+Post+3" alt="Blog Post 3" class="blog-image">
-                    <div class="blog-content">
-                        <div class="blog-date">April 10, 2023</div>
-                        <h3 class="blog-title">Accessibility in Web Design</h3>
-                        <p class="blog-excerpt">
-                            Why accessibility matters and how to create inclusive designs that work for everyone.
-                        </p>
-                        <a href="#" class="blog-read-more">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="#" class="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm md:text-base enhanced-button">
-                    View All Blog Posts
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </a>
             </div>
         </div>
     </section>
@@ -1903,9 +1289,9 @@
         <div class="container mx-auto px-4 md:px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="newsletter" data-aos="fade-up">
-                    <h3 class="newsletter-title">Subscribe to My Newsletter</h3>
+                    <h3 class="newsletter-title">Join Our Movement</h3>
                     <p class="newsletter-description">
-                        Get the latest updates on my projects, blog posts, and design insights delivered to your inbox.
+                        Subscribe to receive updates on our initiatives and opportunities to get involved in creating positive change.
                     </p>
                     <form class="newsletter-form" id="newsletter-form">
                         <input type="email" class="newsletter-input" placeholder="Your email address" required>
@@ -1924,7 +1310,7 @@
                     Let's <span class="gradient-text">Connect</span>
                 </h2>
                 <p class="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.
+                    Interested in collaborating or supporting our initiatives? I'd love to hear from you.
                 </p>
             </div>
 
@@ -1958,7 +1344,7 @@
                 <div class="mt-12 md:mt-16 flex justify-center space-x-4 md:space-x-6" data-aos="fade-up" data-aos-delay="400">
                     <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-effect flex items-center justify-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
                         <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
                         </svg>
                     </a>
                     <a href="https://www.linkedin.com/in/kanish-sj-606808375?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-effect flex items-center justify-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
@@ -1968,7 +1354,7 @@
                     </a>
                     <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-effect flex items-center justify-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
                         <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                     </a>
                     <a href="https://www.instagram.com/sj.kanish?utm_source=ig_web_button_share_sheet&igsh=ajBybGtlMTk2cnZt" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full glass-effect flex items-center justify-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
@@ -1987,10 +1373,10 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
                     <div class="rgb-animation text-lg md:text-xl font-bold">SJ KANISH</div>
-                    <div class="text-xs md:text-sm text-gray-400">UI/UX Designer & Developer</div>
+                    <div class="text-xs md:text-sm text-gray-400">Social Activist</div>
                 </div>
                 <div class="text-xs md:text-sm text-gray-400">
-                    © 2025 SJ Kanish. Crafted with <span class="text-red-500">❤</span> by AJ STUDIOZ
+                    © 2025 SJ Kanish. Portfolio developed by <span class="text-blue-400">AJ STUDIOZ</span>
                 </div>
             </div>
         </div>
@@ -2003,40 +1389,6 @@
         </svg>
     </div>
 
-    <!-- Chatbot -->
-    <div id="chatbot" class="chatbot">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-        </svg>
-    </div>
-
-    <div id="chatbot-window" class="chatbot-window">
-        <div class="chatbot-header">
-            <div class="chatbot-title">Assistant</div>
-            <button id="chatbot-close" class="chatbot-close">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-        <div class="chatbot-messages" id="chatbot-messages">
-            <div class="chatbot-message bot">
-                <div class="chatbot-message-bubble">
-                    Hello! I'm SJ's virtual assistant. How can I help you today?
-                </div>
-            </div>
-        </div>
-        <div class="chatbot-input-container">
-            <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Type a message...">
-            <button id="chatbot-send" class="chatbot-send">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
-
     <script>
         // Initialize AOS
         AOS.init({
@@ -2046,26 +1398,15 @@
             disable: window.innerWidth < 768 // Disable AOS on mobile for better performance
         });
 
-        // Loading screen with progress
-        let loadingProgress = 0;
-        const loadingProgressBar = document.getElementById('loading-progress-bar');
-        const loadingInterval = setInterval(() => {
-            loadingProgress += Math.random() * 15;
-            if (loadingProgress >= 100) {
-                loadingProgress = 100;
-                loadingProgressBar.style.width = loadingProgress + '%';
-                clearInterval(loadingInterval);
-                
-                setTimeout(() => {
-                    document.getElementById('loading-screen').style.opacity = '0';
-                    setTimeout(() => {
-                        document.getElementById('loading-screen').style.display = 'none';
-                    }, 500);
+        // Loading screen - Fixed version
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
                 }, 500);
-            } else {
-                loadingProgressBar.style.width = loadingProgress + '%';
-            }
-        }, 200);
+            }, 1000); // Reduced timeout for faster loading
+        });
 
         // Progress bar with throttling for better performance
         let ticking = false;
@@ -2186,72 +1527,6 @@
             }
         });
 
-        // Search toggle
-        const searchToggle = document.getElementById('search-toggle');
-        const searchBar = document.getElementById('search-bar');
-        const searchInput = document.getElementById('search-input');
-        const searchResults = document.getElementById('search-results');
-
-        searchToggle.addEventListener('click', function() {
-            searchBar.classList.toggle('hidden');
-            if (!searchBar.classList.contains('hidden')) {
-                searchInput.focus();
-            }
-        });
-
-        // Search functionality
-        const searchData = [
-            { title: 'E-commerce Revolution', description: 'Complete redesign of an e-commerce platform', url: 'projects.html#project1' },
-            { title: 'MedConnect Platform', description: 'Patient-centered healthcare platform', url: 'projects.html#project2' },
-            { title: 'FinTech Dashboard', description: 'Advanced financial dashboard with real-time analytics', url: 'projects.html#project3' },
-            { title: 'Tourist Travel Safety System', description: 'Comprehensive safety system for travelers', url: '#current-project' },
-            { title: 'UI/UX Design', description: 'User-centered design solutions', url: '#skills' },
-            { title: 'The Future of UI/UX Design', description: 'Exploring emerging trends and technologies', url: '#blog' },
-            { title: 'Design Systems: A Comprehensive Guide', description: 'Creating and maintaining effective design systems', url: '#blog' },
-            { title: 'Accessibility in Web Design', description: 'Creating inclusive designs that work for everyone', url: '#blog' }
-        ];
-
-        searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase().trim();
-            
-            if (query.length > 0) {
-                const filteredResults = searchData.filter(item => 
-                    item.title.toLowerCase().includes(query) || 
-                    item.description.toLowerCase().includes(query)
-                );
-                
-                searchResults.innerHTML = '';
-                
-                if (filteredResults.length > 0) {
-                    filteredResults.forEach(result => {
-                        const resultItem = document.createElement('div');
-                        resultItem.className = 'search-result-item';
-                        resultItem.innerHTML = `
-                            <div class="search-result-title">${result.title}</div>
-                            <div class="search-result-description">${result.description}</div>
-                        `;
-                        resultItem.addEventListener('click', function() {
-                            window.location.href = result.url;
-                        });
-                        searchResults.appendChild(resultItem);
-                    });
-                    searchResults.classList.add('active');
-                } else {
-                    searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
-                    searchResults.classList.add('active');
-                }
-            } else {
-                searchResults.classList.remove('active');
-            }
-        });
-
-        // Close search results when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!searchBar.contains(e.target) && !searchToggle.contains(e.target)) {
-                searchResults.classList.remove('active');
-            }
-        });
-
         // Form submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -2297,7 +1572,7 @@
             }
             
             // Show success message
-            showNotification('Successfully subscribed to the newsletter!', 'success');
+            showNotification('Successfully subscribed to our newsletter!', 'success');
             
             // Reset form
             this.reset();
@@ -2345,58 +1620,6 @@
             });
         });
 
-        // Chatbot functionality
-        const chatbot = document.getElementById('chatbot');
-        const chatbotWindow = document.getElementById('chatbot-window');
-        const chatbotClose = document.getElementById('chatbot-close');
-        const chatbotMessages = document.getElementById('chatbot-messages');
-        const chatbotInput = document.getElementById('chatbot-input');
-        const chatbotSend = document.getElementById('chatbot-send');
-
-        chatbot.addEventListener('click', function() {
-            chatbotWindow.classList.add('active');
-        });
-
-        chatbotClose.addEventListener('click', function() {
-            chatbotWindow.classList.remove('active');
-        });
-
-        function addChatbotMessage(message, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chatbot-message ${isUser ? 'user' : 'bot'}`;
-            messageDiv.innerHTML = `<div class="chatbot-message-bubble">${message}</div>`;
-            chatbotMessages.appendChild(messageDiv);
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }
-
-        function sendChatbotMessage() {
-            const message = chatbotInput.value.trim();
-            if (message) {
-                addChatbotMessage(message, true);
-                chatbotInput.value = '';
-                
-                // Simulate bot response
-                setTimeout(() => {
-                    const responses = [
-                        "Thank you for your message! I'll pass this along to SJ.",
-                        "That's a great question! SJ would be happy to discuss this with you.",
-                        "I appreciate you reaching out. SJ will get back to you soon.",
-                        "Thanks for your interest in SJ's work! Is there something specific you'd like to know?",
-                        "I'm here to help! What would you like to know about SJ's portfolio or services?"
-                    ];
-                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-                    addChatbotMessage(randomResponse);
-                }, 1000);
-            }
-        }
-
-        chatbotSend.addEventListener('click', sendChatbotMessage);
-        chatbotInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendChatbotMessage();
-            }
-        });
-
         // Add interactive effect to orbs (only on desktop)
         if (window.innerWidth >= 768) {
             document.querySelectorAll('.orb').forEach(orb => {
@@ -2407,42 +1630,6 @@
                     
                     orb.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.2), transparent)`;
                 });
-            });
-        }
-
-        // Lazy loading for images
-        if ('IntersectionObserver' in window) {
-            const imgOptions = {
-                threshold: 0,
-                rootMargin: "0px 0px 300px 0px"
-            };
-
-            const imgObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imgObserver.unobserve(img);
-                    }
-                });
-            }, imgOptions);
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imgObserver.observe(img);
-            });
-        }
-
-        // Service Worker Registration for offline functionality
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('ServiceWorker registration failed: ', error);
-                    });
             });
         }
     </script>
