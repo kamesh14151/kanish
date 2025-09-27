@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - SJ Kanish | UI/UX Portfolio</title>
+    <meta name="description" content="Explore the achievements and milestones of SJ Kanish, a UI/UX Designer and Developer.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Achievements - SJ Kanish | UI/UX Portfolio">
+    <meta property="og:description" content="Explore the achievements and milestones of SJ Kanish, a UI/UX Designer and Developer.">
+    <meta property="og:image" content="https://example.com/og-image.jpg">
+    <meta property="og:url" content="https://example.com/achievements.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            --light-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --bg-primary: #0c0c0c;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --accent-color: #667eea;
+        }
+
+        /* Light theme variables */
+        body.light-theme {
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-tertiary: #e0e0e0;
+            --glass-bg: rgba(0, 0, 0, 0.05);
+            --glass-border: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-gradient);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.light-theme {
+            background: var(--light-gradient);
+        }
+
+        /* Glass effect */
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Continuous RGB animation for the name */
+        .rgb-animation {
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 1600% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rgb-flow 8s linear infinite;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes rgb-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            z-index: 1000;
+            transition: width 0.1s ease;
+            will-change: width;
+        }
+
+        /* Enhanced button styles */
+        .enhanced-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            will-change: transform;
+        }
+
+        .enhanced-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+            will-change: transform;
+        }
+
+        .enhanced-button:hover:before {
+            left: 100%;
+        }
+
+        /* Glowing effect for cards */
+        .glow-on-hover {
+            transition: all 0.3s ease;
+            will-change: box-shadow;
+        }
+
+        .glow-on-hover:hover {
+            box-shadow: 0 0 25px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Achievement card */
+        .achievement-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--primary-gradient);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 30px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 30px;
+        }
+
+        .timeline-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-secondary);
+            border-top: 2px solid var(--glass-border);
+            border-right: 2px solid var(--glass-border);
+            transform: rotate(-45deg);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-secondary);
+            border-top: 2px solid var(--glass-border);
+            border-left: 2px solid var(--glass-border);
+            transform: rotate(45deg);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            box-shadow: 0 0 0 4px var(--bg-secondary);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-date {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Achievement icon */
+        .achievement-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: white;
+        }
+
+        /* Stats card */
+        .stats-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-menu-link {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-link:hover {
+            color: #667eea;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Light theme adjustments */
+        body.light-theme .timeline-content::after {
+            background: var(--bg-primary);
+        }
+
+        body.light-theme .timeline-dot {
+            box-shadow: 0 0 0 4px var(--bg-primary);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-dot {
+                left: 20px !important;
+            }
+            
+            .timeline-content::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 md:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="rgb-animation text-xl md:text-2xl font-black">SJ KANISH</a>
+                    <div class="text-xs text-gray-400 hidden md:block">UI/UX Designer</div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-6 md:space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Home</a>
+                    <a href="index.html#about" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">About</a>
+                    <a href="projects.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Projects</a>
+                    <a href="index.html#current-project" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Current Project</a>
+                    <a href="achievements.html" class="text-white font-semibold text-sm md:text-base">Achievements</a>
+                    <a href="certificates.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Certificates</a>
+                    <a href="index.html#skills" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Skills</a>
+                    <a href="index.html#contact" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full glass-effect hover:bg-white/20 transition-all duration-300">
+                        <svg class="w-5 h-5 sun-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg class="w-5 h-5 moon-icon hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu" class="lg:hidden p-2 rounded-full glass-effect">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu-container" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="rgb-animation text-xl font-bold">SJ KANISH</div>
+            <button id="mobile-menu-close" class="mobile-menu-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="index.html#about" class="mobile-menu-link">About</a>
+            <a href="projects.html" class="mobile-menu-link">Projects</a>
+            <a href="index.html#current-project" class="mobile-menu-link">Current Project</a>
+            <a href="achievements.html" class="mobile-menu-link">Achievements</a>
+            <a href="certificates.html" class="mobile-menu-link">Certificates</a>
+            <a href="index.html#skills" class="mobile-menu-link">Skills</a>
+            <a href="index.html#contact" class="mobile-menu-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Achievements Header -->
+    <section class="pt-32 pb-20 relative">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-black mb-6">
+                    My <span class="gradient-text">Achievements</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                    A timeline of my professional milestones and accomplishments
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="pb-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="stats-card glow-on-hover" data-aos="fade-up">
+                    <div class="stats-number">50+</div>
+                    <div class="stats-label">Projects Completed</div>
+                </div>
+                <div class="stats-card glow-on-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-number">15+</div>
+                    <div class="stats-label">Awards & Recognitions</div>
+                </div>
+                <div class="stats-card glow-on-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-number">10+</div>
+                    <div class="stats-label">Publications</div>
+                </div>
+                <div class="stats-card glow-on-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-number">100%</div>
+                    <div class="stats-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="pb-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="timeline">
+                <!-- Achievement 1 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2023</div>
+                        <h3 class="timeline-title">Best UI/UX Design Award</h3>
+                        <p class="timeline-description">
+                            Received the "Best UI/UX Design Award" at the National Design Competition for the E-commerce Revolution project.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">March 2023</div>
+                        <h3 class="timeline-title">Featured in Design Magazine</h3>
+                        <p class="timeline-description">
+                            The MedConnect Platform project was featured in "Design Innovators" magazine as one of the top 10 healthcare designs of the year.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2023</div>
+                        <h3 class="timeline-title">Speaker at Design Conference</h3>
+                        <p class="timeline-description">
+                            Invited as a guest speaker at the International Design Conference to present on "The Future of AI in UI/UX Design".
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Achievement 4 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 2022</div>
+                        <h3 class="timeline-title">Published Research Paper</h3>
+                        <p class="timeline-description">
+                            Co-authored and published a research paper on "User-Centered Design Approaches for IoT Applications" in the International Journal of Design.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Achievement 5 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">September 2022</div>
+                        <h3 class="timeline-title">Hackathon Winner</h3>
+                        <p class="timeline-description">
+                            Led the team to first place in the National FinTech Hackathon with the FinTech Dashboard project.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Achievement 6 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 2022</div>
+                        <h3 class="timeline-title">UI/UX Certification</h3>
+                        <p class="timeline-description">
+                            Obtained Advanced UI/UX Design Certification from the Design Institute with distinction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Achievements Section -->
+    <section class="pb-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-black mb-4">
+                    Featured <span class="gradient-text">Achievements</span>
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Highlighting some of my most significant accomplishments
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Achievement Card 1 -->
+                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Design Excellence Award</h3>
+                    <p class="text-gray-400 mb-4">
+                        Recognized for outstanding design work that combines aesthetic excellence with functional innovation.
+                    </p>
+                    <div class="text-sm text-gray-500">May 2023</div>
+                </div>
+
+                <!-- Achievement Card 2 -->
+                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="achievement-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Conference Speaker</h3>
+                    <p class="text-gray-400 mb-4">
+                        Invited to speak at multiple international conferences on the future of UI/UX design and emerging technologies.
+                    </p>
+                    <div class="text-sm text-gray-500">January 2023</div>
+                </div>
+
+                <!-- Achievement Card 3 -->
+                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Published Author</h3>
+                    <p class="text-gray-400 mb-4">
+                        Authored multiple articles and research papers on design methodologies and user experience best practices.
+                    </p>
+                    <div class="text-sm text-gray-500">November 2022</div>
+                </div>
+
+                <!-- Achievement Card 4 -->
+                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Team Leadership</h3>
+                    <p class="text-gray-400 mb-4">
+                        Successfully led cross-functional teams to deliver complex design projects on time and within budget.
+                    </p>
+                    <div class="text-sm text-gray-500">September 2022</div>
+                </div>
+
+                <!-- Achievement Card 5 -->
+                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="achievement-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Innovation Award</h3>
+                    <p class="text-gray-400 mb-4">
+                        Recognized for innovative approaches to solving complex design challenges with creative solutions.
+                    </p>
+                    <div class="text-sm text-gray-500">July 2022</div>
+                </div>
+
+                <!-- Achievement Card 6 -->
+                <div class="achievement-card glass-effect rounded-2xl p-6 glow-on-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="achievement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Professional Certification</h3>
+                    <p class="text-gray-400 mb-4">
+                        Obtained multiple professional certifications in UI/UX design, frontend development, and project management.
+                    </p>
+                    <div class="text-sm text-gray-500">May 2022</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 md:py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="rgb-animation text-lg md:text-xl font-bold">SJ KANISH</div>
+                    <div class="text-xs md:text-sm text-gray-400">UI/UX Designer & Developer</div>
+                </div>
+                <div class="text-xs md:text-sm text-gray-400">
+                    © 2025 SJ Kanish. Crafted with <span class="text-red-500">❤</span> by AJ STUDIOZ
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            disable: window.innerWidth < 768 // Disable AOS on mobile for better performance
+        });
+
+        // Progress bar with throttling for better performance
+        let ticking = false;
+        function updateProgressBar() {
+            const scrollPosition = window.scrollY;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (scrollPosition / documentHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateProgressBar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Navbar background on scroll with throttling
+        function updateNavbar() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/70');
+            } else {
+                navbar.classList.remove('bg-black/70');
+            }
+            ticking = false;
+        }
+
+        function requestNavbarTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestNavbarTick);
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu-container');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+        });
+
+        mobileMenuOverlay.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = themeToggle.querySelector('.sun-icon');
+        const moonIcon = themeToggle.querySelector('.moon-icon');
+        const body = document.body;
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
