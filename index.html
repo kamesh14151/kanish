@@ -699,6 +699,17 @@
             opacity: 0.9;
         }
 
+        /* Certificate badge */
+        .certificate-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-title {
@@ -852,7 +863,7 @@
                     <span class="text-white typewriter">CHANGE</span>
                 </h1>
                 <p class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                    Creating positive impact through community engagement and social activism
+                    Creating positive impact through community engagement, artistic expression, and technical expertise
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="initiatives.html" class="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 pulse-glow enhanced-button">
@@ -894,10 +905,10 @@
                     </h2>
                     <div class="space-y-4 md:space-y-6 text-gray-300 text-base md:text-lg leading-relaxed">
                         <p>
-                            I'm a passionate <strong class="text-white">social activist</strong> and community leader dedicated to creating positive change in society. My work focuses on empowering marginalized communities and advocating for social justice.
+                            I'm a passionate <strong class="text-white">social activist</strong> and community leader dedicated to creating positive change in society. My work focuses on empowering marginalized communities, advocating for social justice, and combining technical expertise with artistic expression.
                         </p>
                         <p>
-                            Through grassroots organizing and community engagement, I strive to address pressing social issues and create sustainable solutions that improve people's lives. My approach combines empathy, strategic thinking, and collaborative action.
+                            Through grassroots organizing, community engagement, and leveraging my diverse skill set, I strive to address pressing social issues and create sustainable solutions that improve people's lives. My approach combines empathy, strategic thinking, and collaborative action.
                         </p>
                         <p>
                             I believe in the power of collective action to transform communities and create a more equitable society. Every initiative I undertake is guided by principles of inclusivity, transparency, and sustainable impact.
@@ -919,9 +930,15 @@
                         </div>
                     </div>
                     
-                    <div class="mt-8 md:mt-12">
+                    <div class="mt-8 md:mt-12 flex flex-wrap gap-4">
                         <a href="achievements.html" class="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm md:text-base enhanced-button">
                             View My Achievements
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                        <a href="certificates.html" class="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors text-sm md:text-base enhanced-button">
+                            View My Certificates
                             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
@@ -953,19 +970,19 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Initiative 1 -->
+                <!-- Initiative 1: Youth Art Program -->
                 <div class="glass-effect rounded-2xl overflow-hidden initiative-card glow-on-hover" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://placehold.co/600x400/1a1a1a/667eea?text=Education+Initiative" alt="Education Initiative" class="w-full h-48 object-cover">
+                    <img src="https://z-cdn-media.chatglm.cn/files/a8cc7348-19f9-4757-9af7-c06ea9299333_Screenshot_20250927_164201_LinkedIn.jpg?auth_key=1790509792-85614f389311411cb95c44b99b9861f0-0-a22bcad0ad2d817f6da80e371244eb7a" alt="Youth Art Program" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-white">Education for All</h3>
+                            <h3 class="text-xl font-bold text-white">Youth Art Program</h3>
                             <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">Education</span>
-                                <span class="px-2 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Youth</span>
+                                <span class="px-2 py-1 bg-red-600/20 text-red-400 rounded-full text-xs">Art</span>
+                                <span class="px-2 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-xs">Youth</span>
                             </div>
                         </div>
                         <p class="text-gray-400 mb-4 text-sm leading-relaxed">
-                            Providing educational resources and support to underprivileged children in rural communities.
+                            Empowering young artists through the VARNAM National Painting Competition, providing a platform for creative expression and recognition.
                         </p>
                         <a href="initiatives.html#initiative1" class="flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button">
                             View Details
@@ -976,19 +993,19 @@
                     </div>
                 </div>
 
-                <!-- Initiative 2 -->
+                <!-- Initiative 2: Tamil Cultural Preservation -->
                 <div class="glass-effect rounded-2xl overflow-hidden initiative-card glow-on-hover" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://placehold.co/600x400/1a1a1a/764ba2?text=Healthcare+Initiative" alt="Healthcare Initiative" class="w-full h-48 object-cover">
+                    <img src="https://z-cdn-media.chatglm.cn/files/b4bd22bb-284a-4fd0-9dea-925663eced25_Screenshot_20250927_164147_LinkedIn.jpg?auth_key=1790509792-4591cadb337d40d8a9ac9cf5b3695dc7-0-27eb87af2ec84efc939e07cb27c35b3f" alt="Tamil Cultural Preservation" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-white">Community Health</h3>
+                            <h3 class="text-xl font-bold text-white">Tamil Cultural Preservation</h3>
                             <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-green-600/20 text-green-400 rounded-full text-xs">Healthcare</span>
-                                <span class="px-2 py-1 bg-orange-600/20 text-orange-400 rounded-full text-xs">Rural</span>
+                                <span class="px-2 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Culture</span>
+                                <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">Language</span>
                             </div>
                         </div>
                         <p class="text-gray-400 mb-4 text-sm leading-relaxed">
-                            Improving access to healthcare services in underserved communities through mobile clinics and health education.
+                            Recognizing and promoting Tamil language and cultural heritage through the JACKHI Book of Talents initiative.
                         </p>
                         <a href="initiatives.html#initiative2" class="flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors text-sm enhanced-button">
                             View Details
@@ -999,19 +1016,19 @@
                     </div>
                 </div>
 
-                <!-- Initiative 3 -->
+                <!-- Initiative 3: Cybersecurity Awareness -->
                 <div class="glass-effect rounded-2xl overflow-hidden initiative-card glow-on-hover" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://placehold.co/600x400/1a1a1a/f5576c?text=Environment+Initiative" alt="Environment Initiative" class="w-full h-48 object-cover">
+                    <img src="https://z-cdn-media.chatglm.cn/files/d2f0a460-2d70-4418-8cfe-ba015fb03411_Screenshot_20250927_164052_Linkedin%282\).jpg?auth_key=1790509792-50be554cd8404fe08ddeecb9fe680b5a-0-856cd79130146fad496481f13030dcc1" alt="Cybersecurity Awareness" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-white">Green Earth</h3>
+                            <h3 class="text-xl font-bold text-white">Cybersecurity Awareness</h3>
                             <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-xs">Environment</span>
-                                <span class="px-2 py-1 bg-red-600/20 text-red-400 rounded-full text-xs">Sustainability</span>
+                                <span class="px-2 py-1 bg-green-600/20 text-green-400 rounded-full text-xs">Security</span>
+                                <span class="px-2 py-1 bg-orange-600/20 text-orange-400 rounded-full text-xs">Education</span>
                             </div>
                         </div>
                         <p class="text-gray-400 mb-4 text-sm leading-relaxed">
-                            Environmental conservation initiatives focusing on reforestation and sustainable practices.
+                            Educating communities about cybersecurity threats and prevention strategies through specialized training programs.
                         </p>
                         <a href="initiatives.html#initiative3" class="flex items-center text-pink-400 font-semibold hover:text-pink-300 transition-colors text-sm enhanced-button">
                             View Details
@@ -1041,22 +1058,22 @@
                 <div class="glass-effect rounded-2xl md:rounded-3xl p-6 md:p-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
                         <div class="flex-shrink-0">
-                            <div class="initiative-icon">🌱</div>
+                            <div class="initiative-icon">🎨</div>
                         </div>
                         <div class="flex-grow">
                             <div class="initiative-status">Active</div>
                             <h3 class="text-2xl md:text-4xl font-black mb-4 md:mb-6">
-                                Youth Empowerment <span class="gradient-text">Program</span>
+                                Art & Technology <span class="gradient-text">Empowerment</span>
                             </h3>
                             <div class="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed">
                                 <p>
-                                    Currently leading a comprehensive Youth Empowerment Program designed to provide young people with the skills, resources, and support they need to become agents of change in their communities.
+                                    Currently leading a comprehensive Art & Technology Empowerment Program designed to provide young people with creative and technical skills needed to become agents of change in their communities.
                                 </p>
                                 <p>
-                                    <strong class="text-white">My Role:</strong> Program Coordinator - Responsible for program design, implementation, and evaluation. Working closely with community leaders, educational institutions, and youth organizations to create meaningful opportunities for young people.
+                                    <strong class="text-white">My Role:</strong> Program Director - Responsible for program design, implementation, and evaluation. Combining artistic expression with technical education to create holistic development opportunities.
                                 </p>
                                 <p>
-                                    The program includes mentorship, skills development workshops, community service projects, and leadership training. Our goal is to empower 500+ youth across 10 communities over the next two years.
+                                    The program includes art workshops, technical training in Python and cybersecurity, community service projects, and leadership development. Our goal is to empower 500+ youth across 10 communities over the next two years.
                                 </p>
                             </div>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 md:mt-8">
@@ -1100,7 +1117,7 @@
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <p class="testimonial-quote">
-                        SJ's dedication to community empowerment has transformed our neighborhood. The Youth Empowerment Program has given our children opportunities they never had before.
+                        SJ's dedication to empowering youth through art and technology has transformed our community. The Art & Technology Empowerment Program has given our children opportunities they never had before.
                     </p>
                     <div class="testimonial-author">
                         <img src="https://placehold.co/100x100/1a1a1a/667eea?text=JD" alt="John Doe">
@@ -1114,7 +1131,7 @@
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <p class="testimonial-quote">
-                        Working with SJ has been inspiring. Their passion for social change is contagious, and their strategic approach to problem-solving gets real results.
+                        Working with SJ has been inspiring. Their unique approach combining artistic expression with technical education gets real results and empowers young people to reach their full potential.
                     </p>
                     <div class="testimonial-author">
                         <img src="https://placehold.co/100x100/1a1a1a/764ba2?text=JS" alt="Jane Smith">
@@ -1128,7 +1145,7 @@
                 <!-- Testimonial 3 -->
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <p class="testimonial-quote">
-                        The Education for All initiative has changed my life. I now have access to resources and support that are helping me achieve my dreams.
+                        The VARNAM painting competition gave me a platform to showcase my talent. SJ's guidance and support helped me gain confidence and recognition for my artistic abilities.
                     </p>
                     <div class="testimonial-author">
                         <img src="https://placehold.co/100x100/1a1a1a/f5576c?text=RJ" alt="Rahul Johnson">
@@ -1182,7 +1199,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="font-semibold">Stakeholder Engagement</span>
+                                <span class="font-semibold">Public Speaking</span>
                                 <span class="text-gray-400">85%</span>
                             </div>
                             <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
@@ -1191,7 +1208,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="font-semibold">Public Speaking</span>
+                                <span class="font-semibold">Tamil Language</span>
                                 <span class="text-gray-400">80%</span>
                             </div>
                             <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
@@ -1201,10 +1218,96 @@
                     </div>
                 </div>
                 
-                <!-- Program Management Skills -->
+                <!-- Technical Skills -->
                 <div data-aos="fade-left">
                     <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center">
                         <span class="w-2 h-6 md:h-8 bg-gradient-to-b from-green-500 to-blue-500 rounded-full mr-4"></span>
+                        Technical Skills
+                    </h3>
+                    <div class="space-y-4 md:space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Python Programming</span>
+                                <span class="text-gray-400">85%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Linux Administration</span>
+                                <span class="text-gray-400">80%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Cybersecurity</span>
+                                <span class="text-gray-400">75%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-yellow-500 to-red-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Data Analysis</span>
+                                <span class="text-gray-400">70%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creative & Program Management Skills -->
+            <div class="grid lg:grid-cols-2 gap-12 md:gap-16 mt-12 md:mt-16">
+                <!-- Creative Skills -->
+                <div data-aos="fade-right">
+                    <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center">
+                        <span class="w-2 h-6 md:h-8 bg-gradient-to-b from-pink-500 to-yellow-500 rounded-full mr-4"></span>
+                        Creative Skills
+                    </h3>
+                    <div class="space-y-4 md:space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Painting</span>
+                                <span class="text-gray-400">90%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-red-500 to-yellow-500 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Artistic Expression</span>
+                                <span class="text-gray-400">85%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold">Cultural Preservation</span>
+                                <span class="text-gray-400">80%</span>
+                            </div>
+                            <div class="h-3 bg-gray-800 rounded-full overflow-hidden skill-bar">
+                                <div class="h-full bg-gradient-to-r from-blue-500 to-green-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program Management Skills -->
+                <div data-aos="fade-left">
+                    <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center">
+                        <span class="w-2 h-6 md:h-8 bg-gradient-to-b from-orange-500 to-red-500 rounded-full mr-4"></span>
                         Program Management
                     </h3>
                     <div class="space-y-4 md:space-y-6">
@@ -1256,28 +1359,28 @@
                 </h3>
                 <div class="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
                     <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🎨</div>
+                        <div class="text-xs md:text-sm">Art</div>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">💻</div>
+                        <div class="text-xs md:text-sm">Technology</div>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🗣️</div>
+                        <div class="text-xs md:text-sm">Language</div>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
+                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🔒</div>
+                        <div class="text-xs md:text-sm">Security</div>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
                         <div class="text-xl md:text-2xl mb-1 md:mb-2">📊</div>
-                        <div class="text-xs md:text-sm">Data Analysis</div>
-                    </div>
-                    <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🤝</div>
-                        <div class="text-xs md:text-sm">Partnership</div>
-                    </div>
-                    <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">📣</div>
-                        <div class="text-xs md:text-sm">Advocacy</div>
-                    </div>
-                    <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">🎓</div>
-                        <div class="text-xs md:text-sm">Training</div>
-                    </div>
-                    <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
-                        <div class="text-xl md:text-2xl mb-1 md:mb-2">💡</div>
-                        <div class="text-xs md:text-sm">Innovation</div>
+                        <div class="text-xs md:text-sm">Data</div>
                     </div>
                     <div class="glass-effect rounded-xl p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300 glow-on-hover">
                         <div class="text-xl md:text-2xl mb-1 md:mb-2">🌍</div>
-                        <div class="text-xs md:text-sm">Global Perspective</div>
+                        <div class="text-xs md:text-sm">Culture</div>
                     </div>
                 </div>
             </div>
