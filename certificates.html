@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - SJ Kanish | UI/UX Portfolio</title>
+    <meta name="description" content="Explore the professional certifications of SJ Kanish, a UI/UX Designer and Developer.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Certificates - SJ Kanish | UI/UX Portfolio">
+    <meta property="og:description" content="Explore the professional certifications of SJ Kanish, a UI/UX Designer and Developer.">
+    <meta property="og:image" content="https://example.com/og-image.jpg">
+    <meta property="og:url" content="https://example.com/certificates.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            --light-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --bg-primary: #0c0c0c;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --accent-color: #667eea;
+        }
+
+        /* Light theme variables */
+        body.light-theme {
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-tertiary: #e0e0e0;
+            --glass-bg: rgba(0, 0, 0, 0.05);
+            --glass-border: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-gradient);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.light-theme {
+            background: var(--light-gradient);
+        }
+
+        /* Glass effect */
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Continuous RGB animation for the name */
+        .rgb-animation {
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 1600% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rgb-flow 8s linear infinite;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes rgb-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            z-index: 1000;
+            transition: width 0.1s ease;
+            will-change: width;
+        }
+
+        /* Enhanced button styles */
+        .enhanced-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            will-change: transform;
+        }
+
+        .enhanced-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+            will-change: transform;
+        }
+
+        .enhanced-button:hover:before {
+            left: 100%;
+        }
+
+        /* Glowing effect for cards */
+        .glow-on-hover {
+            transition: all 0.3s ease;
+            will-change: box-shadow;
+        }
+
+        .glow-on-hover:hover {
+            box-shadow: 0 0 25px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Certificate card */
+        .certificate-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            will-change: transform;
+            cursor: pointer;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Certificate modal */
+        .certificate-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .certificate-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .certificate-modal-content {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-modal.active .certificate-modal-content {
+            transform: scale(1);
+        }
+
+        .certificate-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .certificate-modal-body {
+            padding: 30px;
+        }
+
+        .certificate-modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .certificate-modal-issuer {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .certificate-modal-date {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .certificate-modal-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .certificate-modal-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .certificate-modal-verify {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-modal-verify:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Certificate filter */
+        .certificate-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-gradient);
+            border-color: transparent;
+        }
+
+        .filter-btn:hover {
+            background: var(--glass-bg);
+            border-color: var(--accent-color);
+        }
+
+        .filter-btn.active:hover {
+            background: var(--primary-gradient);
+        }
+
+        /* Certificate badge */
+        .certificate-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-menu-link {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-link:hover {
+            color: #667eea;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Light theme adjustments */
+        body.light-theme .certificate-modal-content {
+            background: var(--bg-primary);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .certificate-modal-content {
+                width: 95%;
+                max-height: 95vh;
+            }
+            
+            .certificate-modal-body {
+                padding: 20px;
+            }
+            
+            .certificate-modal-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 md:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="rgb-animation text-xl md:text-2xl font-black">SJ KANISH</a>
+                    <div class="text-xs text-gray-400 hidden md:block">UI/UX Designer</div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-6 md:space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Home</a>
+                    <a href="index.html#about" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">About</a>
+                    <a href="projects.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Projects</a>
+                    <a href="index.html#current-project" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Current Project</a>
+                    <a href="achievements.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Achievements</a>
+                    <a href="certificates.html" class="text-white font-semibold text-sm md:text-base">Certificates</a>
+                    <a href="index.html#skills" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Skills</a>
+                    <a href="index.html#contact" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full glass-effect hover:bg-white/20 transition-all duration-300">
+                        <svg class="w-5 h-5 sun-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg class="w-5 h-5 moon-icon hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu" class="lg:hidden p-2 rounded-full glass-effect">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu-container" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="rgb-animation text-xl font-bold">SJ KANISH</div>
+            <button id="mobile-menu-close" class="mobile-menu-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="index.html#about" class="mobile-menu-link">About</a>
+            <a href="projects.html" class="mobile-menu-link">Projects</a>
+            <a href="index.html#current-project" class="mobile-menu-link">Current Project</a>
+            <a href="achievements.html" class="mobile-menu-link">Achievements</a>
+            <a href="certificates.html" class="mobile-menu-link">Certificates</a>
+            <a href="index.html#skills" class="mobile-menu-link">Skills</a>
+            <a href="index.html#contact" class="mobile-menu-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Certificates Header -->
+    <section class="pt-32 pb-20 relative">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-black mb-6">
+                    My <span class="gradient-text">Certificates</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                    Professional certifications that validate my skills and expertise
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Filter -->
+    <section class="pb-10">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="certificate-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Certificates</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+                <button class="filter-btn" data-filter="management">Management</button>
+                <button class="filter-btn" data-filter="other">Other</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Grid -->
+    <section class="pb-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate 1 -->
+                <div class="certificate-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-category="design" data-id="cert1">
+                    <img src="https://placehold.co/600x400/1a1a1a/667eea?text=UI%2FUX+Design+Certificate" alt="UI/UX Design Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Advanced UI/UX Design</h3>
+                        <div class="text-gray-400 text-sm mb-2">Design Institute</div>
+                        <div class="text-gray-500 text-xs mb-4">Issued: July 2022</div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Comprehensive certification covering advanced UI/UX design principles, methodologies, and best practices.
+                        </p>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="certificate-badge bg-blue-600/20 text-blue-400">UI Design</span>
+                            <span class="certificate-badge bg-purple-600/20 text-purple-400">UX Research</span>
+                            <span class="certificate-badge bg-green-600/20 text-green-400">Prototyping</span>
+                        </div>
+                        <button class="view-certificate-btn text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button" data-certificate="cert1">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="100" data-category="development" data-id="cert2">
+                    <img src="https://placehold.co/600x400/1a1a1a/764ba2?text=Frontend+Development+Certificate" alt="Frontend Development Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Frontend Development</h3>
+                        <div class="text-gray-400 text-sm mb-2">Web Academy</div>
+                        <div class="text-gray-500 text-xs mb-4">Issued: March 2022</div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            In-depth certification in modern frontend development technologies including HTML, CSS, JavaScript, and React.
+                        </p>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="certificate-badge bg-yellow-600/20 text-yellow-400">HTML/CSS</span>
+                            <span class="certificate-badge bg-red-600/20 text-red-400">JavaScript</span>
+                            <span class="certificate-badge bg-blue-600/20 text-blue-400">React</span>
+                        </div>
+                        <button class="view-certificate-btn text-purple-400 font-semibold hover:text-purple-300 transition-colors text-sm enhanced-button" data-certificate="cert2">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="200" data-category="design" data-id="cert3">
+                    <img src="https://placehold.co/600x400/1a1a1a/f093fb?Text=Graphic+Design+Certificate" alt="Graphic Design Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Graphic Design Fundamentals</h3>
+                        <div class="text-gray-400 text-sm mb-2">Design School</div>
+                        <div class="text-gray-500 text-xs mb-4">Issued: December 2021</div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Foundational certification in graphic design principles, typography, color theory, and visual communication.
+                        </p>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="certificate-badge bg-pink-600/20 text-pink-400">Typography</span>
+                            <span class="certificate-badge bg-orange-600/20 text-orange-400">Color Theory</span>
+                            <span class="certificate-badge bg-purple-600/20 text-purple-400">Visual Design</span>
+                        </div>
+                        <button class="view-certificate-btn text-pink-400 font-semibold hover:text-pink-300 transition-colors text-sm enhanced-button" data-certificate="cert3">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="certificate-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="300" data-category="management" data-id="cert4">
+                    <img src="https://placehold.co/600x400/1a1a1a/f5576c?Text=Project+Management+Certificate" alt="Project Management Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Agile Project Management</h3>
+                        <div class="text-gray-400 text-sm mb-2">Management Institute</div>
+                        <div class="text-gray-500 text-xs mb-4">Issued: September 2021</div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Certification in Agile methodologies, Scrum framework, and project management best practices for design projects.
+                        </p>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="certificate-badge bg-green-600/20 text-green-400">Agile</span>
+                            <span class="certificate-badge bg-blue-600/20 text-blue-400">Scrum</span>
+                            <span class="certificate-badge bg-yellow-600/20 text-yellow-400">Project Management</span>
+                        </div>
+                        <button class="view-certificate-btn text-red-400 font-semibold hover:text-red-300 transition-colors text-sm enhanced-button" data-certificate="cert4">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Certificate 5 -->
+                <div class="certificate-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="400" data-category="development" data-id="cert5">
+                    <img src="https://placehold.co/600x400/1a1a1a/4facfe?Text=Python+Programming+Certificate" alt="Python Programming Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Python Programming</h3>
+                        <div class="text-gray-400 text-sm mb-2">Code Academy</div>
+                        <div class="text-gray-500 text-xs mb-4">Issued: June 2021</div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Comprehensive certification in Python programming, covering data structures, algorithms, and application development.
+                        </p>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="certificate-badge bg-blue-600/20 text-blue-400">Python</span>
+                            <span class="certificate-badge bg-green-600/20 text-green-400">Data Structures</span>
+                            <span class="certificate-badge bg-purple-600/20 text-purple-400">Algorithms</span>
+                        </div>
+                        <button class="view-certificate-btn text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button" data-certificate="cert5">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Certificate 6 -->
+                <div class="certificate-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="500" data-category="other" data-id="cert6">
+                    <img src="https://placehold.co/600x400/1a1a1a/00f2fe?Text=Digital+Marketing+Certificate" alt="Digital Marketing Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Digital Marketing Essentials</h3>
+                        <div class="text-gray-400 text-sm mb-2">Marketing Institute</div>
+                        <div class="text-gray-500 text-xs mb-4">Issued: April 2021</div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Certification in digital marketing strategies, SEO, social media marketing, and content creation.
+                        </p>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="certificate-badge bg-red-600/20 text-red-400">SEO</span>
+                            <span class="certificate-badge bg-blue-600/20 text-blue-400">Social Media</span>
+                            <span class="certificate-badge bg-green-600/20 text-green-400">Content Marketing</span>
+                        </div>
+                        <button class="view-certificate-btn text-cyan-400 font-semibold hover:text-cyan-300 transition-colors text-sm enhanced-button" data-certificate="cert6">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Detail Modal -->
+    <div id="certificate-modal" class="certificate-modal">
+        <div class="certificate-modal-content">
+            <div class="certificate-modal-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <div class="certificate-modal-body">
+                <h2 id="modal-title" class="certificate-modal-title"></h2>
+                <div id="modal-issuer" class="certificate-modal-issuer"></div>
+                <div id="modal-date" class="certificate-modal-date"></div>
+                <div id="modal-description" class="certificate-modal-description"></div>
+                <img id="modal-image" src="" alt="" class="certificate-modal-image">
+                <div id="modal-skills" class="flex flex-wrap mb-6"></div>
+                <a id="modal-verify" href="#" target="_blank" class="certificate-modal-verify">Verify Certificate</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-6 md:py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="rgb-animation text-lg md:text-xl font-bold">SJ KANISH</div>
+                    <div class="text-xs md:text-sm text-gray-400">UI/UX Designer & Developer</div>
+                </div>
+                <div class="text-xs md:text-sm text-gray-400">
+                    © 2025 SJ Kanish. Crafted with <span class="text-red-500">❤</span> by AJ STUDIOZ
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            disable: window.innerWidth < 768 // Disable AOS on mobile for better performance
+        });
+
+        // Progress bar with throttling for better performance
+        let ticking = false;
+        function updateProgressBar() {
+            const scrollPosition = window.scrollY;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (scrollPosition / documentHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateProgressBar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Navbar background on scroll with throttling
+        function updateNavbar() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/70');
+            } else {
+                navbar.classList.remove('bg-black/70');
+            }
+            ticking = false;
+        }
+
+        function requestNavbarTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestNavbarTick);
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu-container');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+        });
+
+        mobileMenuOverlay.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = themeToggle.querySelector('.sun-icon');
+        const moonIcon = themeToggle.querySelector('.moon-icon');
+        const body = document.body;
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Certificate filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const certificateCards = document.querySelectorAll('.certificate-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter certificates
+                certificateCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                        // Re-trigger AOS animation
+                        card.removeAttribute('data-aos');
+                        void card.offsetWidth; // Trigger reflow
+                        card.setAttribute('data-aos', 'fade-up');
+                        AOS.refreshHard();
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Certificate modal
+        const certificateModal = document.getElementById('certificate-modal');
+        const modalClose = document.querySelector('.certificate-modal-close');
+        const viewCertificateBtns = document.querySelectorAll('.view-certificate-btn');
+
+        // Certificate data
+        const certificatesData = {
+            cert1: {
+                title: 'Advanced UI/UX Design',
+                issuer: 'Design Institute',
+                date: 'Issued: July 2022',
+                image: 'https://placehold.co/800x600/1a1a1a/667eea?text=UI%2FUX+Design+Certificate',
+                description: 'This comprehensive certification covers advanced UI/UX design principles, methodologies, and best practices. The course included hands-on projects, case studies, and real-world applications to develop a deep understanding of user-centered design.',
+                skills: [
+                    { name: 'UI Design', color: 'blue' },
+                    { name: 'UX Research', color: 'purple' },
+                    { name: 'Prototyping', color: 'green' },
+                    { name: 'Usability Testing', color: 'yellow' },
+                    { name: 'Design Systems', color: 'red' }
+                ],
+                verifyUrl: '#'
+            },
+            cert2: {
+                title: 'Frontend Development',
+                issuer: 'Web Academy',
+                date: 'Issued: March 2022',
+                image: 'https://placehold.co/800x600/1a1a1a/764ba2?text=Frontend+Development+Certificate',
+                description: 'An in-depth certification program covering modern frontend development technologies including HTML, CSS, JavaScript, and React. The curriculum focused on building responsive, accessible, and performant web applications.',
+                skills: [
+                    { name: 'HTML/CSS', color: 'yellow' },
+                    { name: 'JavaScript', color: 'red' },
+                    { name: 'React', color: 'blue' },
+                    { name: 'Responsive Design', color: 'green' },
+                    { name: 'Web Performance', color: 'purple' }
+                ],
+                verifyUrl: '#'
+            },
+            cert3: {
+                title: 'Graphic Design Fundamentals',
+                issuer: 'Design School',
+                date: 'Issued: December 2021',
+                image: 'https://placehold.co/800x600/1a1a1a/f093fb?Text=Graphic+Design+Certificate',
+                description: 'Foundational certification in graphic design principles, typography, color theory, and visual communication. The course covered both traditional and digital design techniques with practical applications.',
+                skills: [
+                    { name: 'Typography', color: 'pink' },
+                    { name: 'Color Theory', color: 'orange' },
+                    { name: 'Visual Design', color: 'purple' },
+                    { name: 'Brand Identity', color: 'blue' },
+                    { name: 'Print Design', color: 'green' }
+                ],
+                verifyUrl: '#'
+            },
+            cert4: {
+                title: 'Agile Project Management',
+                issuer: 'Management Institute',
+                date: 'Issued: September 2021',
+                image: 'https://placehold.co/800x600/1a1a1a/f5576c?Text=Project+Management+Certificate',
+                description: 'Certification in Agile methodologies, Scrum framework, and project management best practices specifically tailored for design and development projects. The course emphasized practical implementation and team collaboration.',
+                skills: [
+                    { name: 'Agile', color: 'green' },
+                    { name: 'Scrum', color: 'blue' },
+                    { name: 'Project Management', color: 'yellow' },
+                    { name: 'Team Leadership', color: 'purple' },
+                    { name: 'Risk Management', color: 'red' }
+                ],
+                verifyUrl: '#'
+            },
+            cert5: {
+                title: 'Python Programming',
+                issuer: 'Code Academy',
+                date: 'Issued: June 2021',
+                image: 'https://placehold.co/800x600/1a1a1a/4facfe?Text=Python+Programming+Certificate',
+                description: 'Comprehensive certification in Python programming, covering data structures, algorithms, and application development. The course included hands-on coding exercises and real-world projects to build practical skills.',
+                skills: [
+                    { name: 'Python', color: 'blue' },
+                    { name: 'Data Structures', color: 'green' },
+                    { name: 'Algorithms', color: 'purple' },
+                    { name: 'Web Development', color: 'yellow' },
+                    { name: 'Data Analysis', color: 'red' }
+                ],
+                verifyUrl: '#'
+            },
+            cert6: {
+                title: 'Digital Marketing Essentials',
+                issuer: 'Marketing Institute',
+                date: 'Issued: April 2021',
+                image: 'https://placehold.co/800x600/1a1a1a/00f2fe?Text=Digital+Marketing+Certificate',
+                description: 'Certification in digital marketing strategies, SEO, social media marketing, and content creation. The course covered both strategic planning and tactical execution of digital marketing campaigns.',
+                skills: [
+                    { name: 'SEO', color: 'red' },
+                    { name: 'Social Media', color: 'blue' },
+                    { name: 'Content Marketing', color: 'green' },
+                    { name: 'Analytics', color: 'purple' },
+                    { name: 'Campaign Management', color: 'yellow' }
+                ],
+                verifyUrl: '#'
+            }
+        };
+
+        // Open certificate modal
+        viewCertificateBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const certificateId = this.getAttribute('data-certificate');
+                const certificate = certificatesData[certificateId];
+                
+                if (certificate) {
+                    // Populate modal with certificate data
+                    document.getElementById('modal-title').textContent = certificate.title;
+                    document.getElementById('modal-issuer').textContent = certificate.issuer;
+                    document.getElementById('modal-date').textContent = certificate.date;
+                    document.getElementById('modal-description').textContent = certificate.description;
+                    document.getElementById('modal-image').src = certificate.image;
+                    document.getElementById('modal-verify').href = certificate.verifyUrl;
+                    
+                    // Populate skills
+                    const skillsContainer = document.getElementById('modal-skills');
+                    skillsContainer.innerHTML = '';
+                    certificate.skills.forEach(skill => {
+                        const skillElement = document.createElement('span');
+                        skillElement.className = `certificate-badge bg-${skill.color}-600/20 text-${skill.color}-400`;
+                        skillElement.textContent = skill.name;
+                        skillsContainer.appendChild(skillElement);
+                    });
+                    
+                    // Show modal
+                    certificateModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close certificate modal
+        modalClose.addEventListener('click', function() {
+            certificateModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal when clicking outside content
+        certificateModal.addEventListener('click', function(e) {
+            if (e.target === certificateModal) {
+                certificateModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>
