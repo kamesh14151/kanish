@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - SJ Kanish | UI/UX Portfolio</title>
+    <meta name="description" content="Explore the portfolio projects of SJ Kanish, a UI/UX Designer and Developer specializing in user-centered design solutions.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Projects - SJ Kanish | UI/UX Portfolio">
+    <meta property="og:description" content="Explore the portfolio projects of SJ Kanish, a UI/UX Designer and Developer specializing in user-centered design solutions.">
+    <meta property="og:image" content="https://example.com/og-image.jpg">
+    <meta property="og:url" content="https://example.com/projects.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            --light-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --bg-primary: #0c0c0c;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --accent-color: #667eea;
+        }
+
+        /* Light theme variables */
+        body.light-theme {
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-tertiary: #e0e0e0;
+            --glass-bg: rgba(0, 0, 0, 0.05);
+            --glass-border: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-gradient);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.light-theme {
+            background: var(--light-gradient);
+        }
+
+        /* Glass effect */
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Continuous RGB animation for the name */
+        .rgb-animation {
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 1600% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rgb-flow 8s linear infinite;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes rgb-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            z-index: 1000;
+            transition: width 0.1s ease;
+            will-change: width;
+        }
+
+        /* Enhanced button styles */
+        .enhanced-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            will-change: transform;
+        }
+
+        .enhanced-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+            will-change: transform;
+        }
+
+        .enhanced-button:hover:before {
+            left: 100%;
+        }
+
+        /* Glowing effect for project cards */
+        .glow-on-hover {
+            transition: all 0.3s ease;
+            will-change: box-shadow;
+        }
+
+        .glow-on-hover:hover {
+            box-shadow: 0 0 25px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Project card */
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .project-card:hover {
+            transform: translateY(-20px) rotateX(5deg);
+        }
+
+        /* Project filter */
+        .project-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-gradient);
+            border-color: transparent;
+        }
+
+        .filter-btn:hover {
+            background: var(--glass-bg);
+            border-color: var(--accent-color);
+        }
+
+        .filter-btn.active:hover {
+            background: var(--primary-gradient);
+        }
+
+        /* Project detail modal */
+        .project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .project-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .project-modal-content {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .project-modal.active .project-modal-content {
+            transform: scale(1);
+        }
+
+        .project-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .project-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-modal-header {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .project-modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-modal-body {
+            padding: 30px;
+        }
+
+        .project-modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-modal-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .project-modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-modal-tag {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .project-modal-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .project-modal-section {
+            margin-bottom: 30px;
+        }
+
+        .project-modal-section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .project-modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .project-modal-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .project-modal-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .project-modal-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .project-modal-link {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-modal-link.primary {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        .project-modal-link.secondary {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+        }
+
+        .project-modal-link:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-menu-link {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-link:hover {
+            color: #667eea;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Light theme adjustments */
+        body.light-theme .project-modal-content {
+            background: var(--bg-primary);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .project-modal-content {
+                width: 95%;
+                max-height: 95vh;
+            }
+            
+            .project-modal-header {
+                height: 200px;
+            }
+            
+            .project-modal-body {
+                padding: 20px;
+            }
+            
+            .project-modal-title {
+                font-size: 24px;
+            }
+            
+            .project-modal-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 md:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="rgb-animation text-xl md:text-2xl font-black">SJ KANISH</a>
+                    <div class="text-xs text-gray-400 hidden md:block">UI/UX Designer</div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-6 md:space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Home</a>
+                    <a href="index.html#about" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">About</a>
+                    <a href="projects.html" class="text-white font-semibold text-sm md:text-base">Projects</a>
+                    <a href="index.html#current-project" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Current Project</a>
+                    <a href="achievements.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Achievements</a>
+                    <a href="certificates.html" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Certificates</a>
+                    <a href="index.html#skills" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Skills</a>
+                    <a href="index.html#contact" class="text-gray-300 hover:text-white transition-colors duration-300 relative text-sm md:text-base">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full glass-effect hover:bg-white/20 transition-all duration-300">
+                        <svg class="w-5 h-5 sun-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg class="w-5 h-5 moon-icon hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu" class="lg:hidden p-2 rounded-full glass-effect">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu-container" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="rgb-animation text-xl font-bold">SJ KANISH</div>
+            <button id="mobile-menu-close" class="mobile-menu-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="index.html#about" class="mobile-menu-link">About</a>
+            <a href="projects.html" class="mobile-menu-link">Projects</a>
+            <a href="index.html#current-project" class="mobile-menu-link">Current Project</a>
+            <a href="achievements.html" class="mobile-menu-link">Achievements</a>
+            <a href="certificates.html" class="mobile-menu-link">Certificates</a>
+            <a href="index.html#skills" class="mobile-menu-link">Skills</a>
+            <a href="index.html#contact" class="mobile-menu-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Projects Header -->
+    <section class="pt-32 pb-20 relative">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-black mb-6">
+                    My <span class="gradient-text">Projects</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                    A showcase of my work in UI/UX design and development
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Filter -->
+    <section class="pb-10">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="project-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ui-ux">UI/UX Design</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                <button class="filter-btn" data-filter="mobile">Mobile App</button>
+                <button class="filter-btn" data-filter="hardware">Hardware</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="pb-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-category="ui-ux web" data-id="project1">
+                    <img src="https://placehold.co/600x400/1a1a1a/667eea?text=E-commerce+Platform" alt="E-commerce Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white">E-commerce Revolution</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">UI/UX</span>
+                                <span class="px-2 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Web</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Complete redesign of an e-commerce platform resulting in 40% increase in conversion rates.
+                        </p>
+                        <button class="view-project-btn flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button" data-project="project1">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="100" data-category="ui-ux mobile" data-id="project2">
+                    <img src="https://placehold.co/600x400/1a1a1a/764ba2?text=Healthcare+App" alt="Healthcare Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white">MedConnect Platform</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-green-600/20 text-green-400 rounded-full text-xs">Healthcare</span>
+                                <span class="px-2 py-1 bg-orange-600/20 text-orange-400 rounded-full text-xs">Mobile</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Patient-centered healthcare platform with telemedicine capabilities and AI-powered assessment.
+                        </p>
+                        <button class="view-project-btn flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors text-sm enhanced-button" data-project="project2">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="200" data-category="ui-ux web" data-id="project3">
+                    <img src="https://placehold.co/600x400/1a1a1a/f5576c?text=FinTech+Dashboard" alt="FinTech Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white">FinTech Dashboard</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-xs">FinTech</span>
+                                <span class="px-2 py-1 bg-red-600/20 text-red-400 rounded-full text-xs">Analytics</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Advanced financial dashboard with real-time analytics and predictive investment insights.
+                        </p>
+                        <button class="view-project-btn flex items-center text-pink-400 font-semibold hover:text-pink-300 transition-colors text-sm enhanced-button" data-project="project3">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="300" data-category="ui-ux mobile" data-id="project4">
+                    <img src="https://placehold.co/600x400/1a1a1a/4facfe?text=Fitness+App" alt="Fitness App Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white">FitTrack Pro</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">Fitness</span>
+                                <span class="px-2 py-1 bg-green-600/20 text-green-400 rounded-full text-xs">Mobile</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Comprehensive fitness tracking app with personalized workout plans and nutrition guidance.
+                        </p>
+                        <button class="view-project-btn flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm enhanced-button" data-project="project4">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="400" data-category="ui-ux web" data-id="project5">
+                    <img src="https://placehold.co/600x400/1a1a1a/00f2fe?text=Education+Platform" alt="Education Platform Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white">EduLearn Platform</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Education</span>
+                                <span class="px-2 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">Web</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Interactive learning platform with AI-powered personalized learning paths and progress tracking.
+                        </p>
+                        <button class="view-project-btn flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors text-sm enhanced-button" data-project="project5">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden glow-on-hover" data-aos="fade-up" data-aos-delay="500" data-category="hardware" data-id="project6">
+                    <img src="https://placehold.co/600x400/1a1a1a/ff9a9e?text=IoT+Device" alt="IoT Device Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white">Smart Home Controller</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-red-600/20 text-red-400 rounded-full text-xs">IoT</span>
+                                <span class="px-2 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-xs">Hardware</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            IoT device for controlling home appliances with voice commands and mobile app integration.
+                        </p>
+                        <button class="view-project-btn flex items-center text-red-400 font-semibold hover:text-red-300 transition-colors text-sm enhanced-button" data-project="project6">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="project-modal">
+        <div class="project-modal-content">
+            <div class="project-modal-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <div class="project-modal-header">
+                <img id="modal-image" src="" alt="">
+            </div>
+            <div class="project-modal-body">
+                <h2 id="modal-title" class="project-modal-title"></h2>
+                <p id="modal-subtitle" class="project-modal-subtitle"></p>
+                <div id="modal-tags" class="project-modal-tags"></div>
+                <div id="modal-description" class="project-modal-description"></div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Project Overview</h3>
+                    <div id="modal-overview"></div>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">My Role</h3>
+                    <div id="modal-role"></div>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Process</h3>
+                    <div id="modal-process"></div>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Results</h3>
+                    <div id="modal-results"></div>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Gallery</h3>
+                    <div id="modal-gallery" class="project-modal-gallery"></div>
+                </div>
+                
+                <div id="modal-links" class="project-modal-links"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-6 md:py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="rgb-animation text-lg md:text-xl font-bold">SJ KANISH</div>
+                    <div class="text-xs md:text-sm text-gray-400">UI/UX Designer & Developer</div>
+                </div>
+                <div class="text-xs md:text-sm text-gray-400">
+                    © 2025 SJ Kanish. Crafted with <span class="text-red-500">❤</span> by AJ STUDIOZ
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            disable: window.innerWidth < 768 // Disable AOS on mobile for better performance
+        });
+
+        // Progress bar with throttling for better performance
+        let ticking = false;
+        function updateProgressBar() {
+            const scrollPosition = window.scrollY;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (scrollPosition / documentHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateProgressBar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Navbar background on scroll with throttling
+        function updateNavbar() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/70');
+            } else {
+                navbar.classList.remove('bg-black/70');
+            }
+            ticking = false;
+        }
+
+        function requestNavbarTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestNavbarTick);
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu-container');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+        });
+
+        mobileMenuOverlay.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = themeToggle.querySelector('.sun-icon');
+        const moonIcon = themeToggle.querySelector('.moon-icon');
+        const body = document.body;
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Project filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                        // Re-trigger AOS animation
+                        card.removeAttribute('data-aos');
+                        void card.offsetWidth; // Trigger reflow
+                        card.setAttribute('data-aos', 'fade-up');
+                        AOS.refreshHard();
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Project modal
+        const projectModal = document.getElementById('project-modal');
+        const modalClose = document.querySelector('.project-modal-close');
+        const viewProjectBtns = document.querySelectorAll('.view-project-btn');
+
+        // Project data
+        const projectsData = {
+            project1: {
+                title: 'E-commerce Revolution',
+                subtitle: 'Complete redesign of an e-commerce platform',
+                image: 'https://placehold.co/900x500/1a1a1a/667eea?text=E-commerce+Platform',
+                tags: [
+                    { name: 'UI/UX Design', color: 'blue' },
+                    { name: 'Web Design', color: 'purple' },
+                    { name: 'E-commerce', color: 'green' }
+                ],
+                description: 'A comprehensive redesign of an e-commerce platform that resulted in a 40% increase in conversion rates and improved user satisfaction. The project involved extensive user research, prototyping, and iterative testing to create an intuitive shopping experience.',
+                overview: 'The client was struggling with low conversion rates and high cart abandonment rates on their existing e-commerce platform. Our goal was to redesign the entire user experience to make it more intuitive, engaging, and conversion-focused.',
+                role: 'Lead UI/UX Designer responsible for user research, wireframing, prototyping, and user testing. Collaborated closely with frontend developers to ensure design implementation matched the intended experience.',
+                process: '1. Discovery phase with stakeholder interviews and competitive analysis<br>2. User research including surveys and interviews with target customers<br>3. Information architecture redesign and user flow optimization<br>4. Wireframing and low-fidelity prototyping<br>5. High-fidelity design with a focus on visual hierarchy and micro-interactions<br>6. Usability testing and iterative improvements<br>7. Design handoff and collaboration with development team',
+                results: '• 40% increase in conversion rate<br>• 25% decrease in cart abandonment rate<br>• 60% improvement in user satisfaction scores<br>• 30% increase in average order value<br>• 20% reduction in customer support inquiries',
+                gallery: [
+                    'https://placehold.co/400x300/1a1a1a/667eea?text=Homepage',
+                    'https://placehold.co/400x300/1a1a1a/764ba2?text=Product+Page',
+                    'https://placehold.co/400x300/1a1a1a/f093fb?text=Checkout',
+                    'https://placehold.co/400x300/1a1a1a/f5576c?text=Mobile+View'
+                ],
+                links: [
+                    { text: 'View Live Site', url: '#', type: 'primary' },
+                    { text: 'Case Study', url: '#', type: 'secondary' }
+                ]
+            },
+            project2: {
+                title: 'MedConnect Platform',
+                subtitle: 'Patient-centered healthcare platform with telemedicine capabilities',
+                image: 'https://placehold.co/900x500/1a1a1a/764ba2?text=Healthcare+App',
+                tags: [
+                    { name: 'Healthcare', color: 'green' },
+                    { name: 'Mobile App', color: 'orange' },
+                    { name: 'Telemedicine', color: 'blue' }
+                ],
+                description: 'A comprehensive healthcare platform that connects patients with healthcare providers through telemedicine, appointment scheduling, and AI-powered symptom assessment.',
+                overview: 'The healthcare industry was rapidly shifting towards digital solutions, especially after the global pandemic. Our client wanted to create a platform that would make healthcare more accessible while maintaining high standards of patient care and data security.',
+                role: 'UI/UX Designer responsible for designing the mobile app interface, creating user flows for appointment booking and telemedicine consultations, and ensuring accessibility for users of all ages and technical abilities.',
+                process: '1. Research phase including interviews with healthcare professionals and patients<br>2. Competitive analysis of existing telemedicine platforms<br>3. User persona development and journey mapping<br>4. Information architecture design for complex medical data<br>5. Wireframing with a focus on accessibility and ease of use<br>6. High-fidelity design with a calming, professional aesthetic<br>7. Usability testing with diverse user groups including elderly users<br>8. Iterative improvements based on feedback',
+                results: '• 95% user satisfaction rate among patients<br>• 30% reduction in missed appointments<br>• 40% increase in telemedicine adoption<br>• 25% decrease in administrative workload for healthcare providers<br>• HIPAA compliance with robust data security measures',
+                gallery: [
+                    'https://placehold.co/400x300/1a1a1a/764ba2?text=Dashboard',
+                    'https://placehold.co/400x300/1a1a1a/4facfe?text=Appointment',
+                    'https://placehold.co/400x300/1a1a1a/00f2fe?text=Telemedicine',
+                    'https://placehold.co/400x300/1a1a1a/667eea?text=Health+Records'
+                ],
+                links: [
+                    { text: 'View Live Site', url: '#', type: 'primary' },
+                    { text: 'Case Study', url: '#', type: 'secondary' }
+                ]
+            },
+            project3: {
+                title: 'FinTech Dashboard',
+                subtitle: 'Advanced financial dashboard with real-time analytics',
+                image: 'https://placehold.co/900x500/1a1a1a/f5576c?text=FinTech+Dashboard',
+                tags: [
+                    { name: 'FinTech', color: 'yellow' },
+                    { name: 'Analytics', color: 'red' },
+                    { name: 'Dashboard', color: 'purple' }
+                ],
+                description: 'A sophisticated financial dashboard that transforms complex data into actionable insights through intuitive visualization and AI-powered analytics.',
+                overview: 'Financial professionals were struggling to make sense of vast amounts of market data and portfolio information. Our goal was to create a dashboard that would present complex financial data in an intuitive, actionable format while providing advanced analytical tools.',
+                role: 'Lead UI/UX Designer responsible for data visualization design, dashboard layout, and creating interactive components for financial analysis. Worked closely with data scientists to ensure accurate representation of complex financial metrics.',
+                process: '1. Stakeholder interviews with financial analysts and portfolio managers<br>2. Competitive analysis of existing financial dashboards<br>3. User research to understand data visualization preferences<br>4. Information architecture design for complex financial data<br>5. Wireframing with a focus on data hierarchy and importance<br>6. High-fidelity design with customizable dashboard components<br>7. Prototyping of interactive data visualizations<br>8. Usability testing with financial professionals',
+                results: '• 50% faster decision-making for financial analysts<br>• 85% user adoption rate within the first month<br>• 30% improvement in data accuracy interpretation<br>• 40% reduction in time spent on report generation<br>• Customizable views that increased user productivity by 35%',
+                gallery: [
+                    'https://placehold.co/400x300/1a1a1a/f5576c?text=Portfolio+Overview',
+                    'https://placehold.co/400x300/1a1a1a/ff9a9e?text=Market+Analysis',
+                    'https://placehold.co/400x300/1a1a1a/667eea?text=Performance+Metrics',
+                    'https://placehold.co/400x300/1a1a1a/764ba2?text=Custom+Reports'
+                ],
+                links: [
+                    { text: 'View Live Site', url: '#', type: 'primary' },
+                    { text: 'Case Study', url: '#', type: 'secondary' }
+                ]
+            },
+            project4: {
+                title: 'FitTrack Pro',
+                subtitle: 'Comprehensive fitness tracking app with personalized workout plans',
+                image: 'https://placehold.co/900x500/1a1a1a/4facfe?text=Fitness+App',
+                tags: [
+                    { name: 'Fitness', color: 'blue' },
+                    { name: 'Mobile App', color: 'green' },
+                    { name: 'Health', color: 'orange' }
+                ],
+                description: 'A comprehensive fitness tracking app that combines workout planning, nutrition guidance, and progress tracking with AI-powered personalization.',
+                overview: 'The fitness app market was saturated with generic solutions that failed to keep users engaged long-term. Our client wanted to create an app that would provide truly personalized fitness experiences to improve user retention and results.',
+                role: 'UI/UX Designer responsible for designing the user interface, creating workout and nutrition tracking flows, and developing gamification elements to increase user engagement.',
+                process: '1. Market research and competitive analysis<br>2. User interviews with fitness enthusiasts and beginners<br>3. Persona development for different user types<br>4. User journey mapping for workout and nutrition tracking<br>5. Wireframing of core app features and navigation<br>6. High-fidelity design with a motivating, energetic aesthetic<br>7. Prototyping of interactive workout demonstrations<br>8. Usability testing with diverse fitness levels',
+                results: '• 70% increase in user retention compared to industry average<br>• 45% improvement in workout consistency among users<br>• 60% of users reported achieving their fitness goals<br>• 30% increase in premium subscription conversions<br>• 4.8-star rating on app stores with over 10,000 reviews',
+                gallery: [
+                    'https://placehold.co/400x300/1a1a1a/4facfe?text=Dashboard',
+                    'https://placehold.co/400x300/1a1a1a/00f2fe?text=Workout+Plan',
+                    'https://placehold.co/400x300/1a1a1a/667eea?text=Nutrition+Tracker',
+                    'https://placehold.co/400x300/1a1a1a/764ba2?text=Progress+Charts'
+                ],
+                links: [
+                    { text: 'View on App Store', url: '#', type: 'primary' },
+                    { text: 'View on Google Play', url: '#', type: 'secondary' }
+                ]
+            },
+            project5: {
+                title: 'EduLearn Platform',
+                subtitle: 'Interactive learning platform with AI-powered personalized learning paths',
+                image: 'https://placehold.co/900x500/1a1a1a/00f2fe?text=Education+Platform',
+                tags: [
+                    { name: 'Education', color: 'purple' },
+                    { name: 'Web Design', color: 'blue' },
+                    { name: 'AI/ML', color: 'green' }
+                ],
+                description: 'An innovative e-learning platform that uses artificial intelligence to create personalized learning paths and adapt to individual student needs.',
+                overview: 'Traditional e-learning platforms often take a one-size-fits-all approach that fails to address individual learning styles and paces. Our goal was to create a platform that would leverage AI to personalize the learning experience for each student.',
+                role: 'UI/UX Designer responsible for designing the learning interface, creating student and teacher dashboards, and developing interactive learning components.',
+                process: '1. Research phase with educators, students, and learning specialists<br>2. Competitive analysis of existing e-learning platforms<br>3. User persona development for different age groups and learning styles<br>4. Information architecture design for course content and student data<br>5. Wireframing of learning modules and assessment tools<br>6. High-fidelity design with an engaging, accessible aesthetic<br>7. Prototyping of interactive learning elements<br>8. Usability testing with students and educators',
+                results: '• 65% improvement in learning outcomes compared to traditional methods<br>• 80% student engagement rate, well above industry average<br>• 50% reduction in time to mastery for complex subjects<br>• 40% increase in course completion rates<br>• Positive feedback from 95% of educators using the platform',
+                gallery: [
+                    'https://placehold.co/400x300/1a1a1a/00f2fe?text=Student+Dashboard',
+                    'https://placehold.co/400x300/1a1a1a/667eea?text=Learning+Module',
+                    'https://placehold.co/400x300/1a1a1a/764ba2?text=Progress+Tracking',
+                    'https://placehold.co/400x300/1a1a1a/f093fb?text=Teacher+Dashboard'
+                ],
+                links: [
+                    { text: 'View Live Site', url: '#', type: 'primary' },
+                    { text: 'Case Study', url: '#', type: 'secondary' }
+                ]
+            },
+            project6: {
+                title: 'Smart Home Controller',
+                subtitle: 'IoT device for controlling home appliances with voice commands',
+                image: 'https://placehold.co/900x500/1a1a1a/ff9a9e?text=IoT+Device',
+                tags: [
+                    { name: 'IoT', color: 'red' },
+                    { name: 'Hardware', color: 'yellow' },
+                    { name: 'Smart Home', color: 'purple' }
+                ],
+                description: 'An innovative IoT device that allows users to control home appliances through voice commands and a mobile app, with energy usage monitoring and automation capabilities.',
+                overview: 'Smart home technology was becoming more popular, but many solutions were expensive, complicated to set up, or limited in compatibility. Our goal was to create an affordable, user-friendly smart home controller that would work with a wide range of appliances.',
+                role: 'Hardware Designer and UI/UX Designer responsible for the physical design of the device, the mobile app interface, and the user experience for setup and daily use.',
+                process: '1. Market research and competitive analysis<br>2. User interviews with homeowners and renters<br>3. Technical feasibility studies for hardware components<br>4. Industrial design of the physical device<br>5. User flow design for device setup and configuration<br>6. Mobile app UI design for controlling appliances and monitoring energy usage<br>7. Prototyping of both hardware and software components<br>8. User testing for setup ease and daily use',
+                results: '• 90% user satisfaction with ease of setup<br>• 60% reduction in energy usage for connected appliances<br>• 85% compatibility with existing home appliances<br>• 30% cost savings compared to competing smart home systems<br>• 4.7-star rating with praise for simplicity and reliability',
+                gallery: [
+                    'https://placehold.co/400x300/1a1a1a/ff9a9e?text=Device+Front',
+                    'https://placehold.co/400x300/1a1a1a/f5576c?text=Device+Back',
+                    'https://placehold.co/400x300/1a1a1a/667eea?text=Mobile+App',
+                    'https://placehold.co/400x300/1a1a1a/4facfe?text=Energy+Dashboard'
+                ],
+                links: [
+                    { text: 'Product Page', url: '#', type: 'primary' },
+                    { text: 'Technical Specs', url: '#', type: 'secondary' }
+                ]
+            }
+        };
+
+        // Open project modal
+        viewProjectBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project');
+                const project = projectsData[projectId];
+                
+                if (project) {
+                    // Populate modal with project data
+                    document.getElementById('modal-image').src = project.image;
+                    document.getElementById('modal-title').textContent = project.title;
+                    document.getElementById('modal-subtitle').textContent = project.subtitle;
+                    
+                    // Populate tags
+                    const tagsContainer = document.getElementById('modal-tags');
+                    tagsContainer.innerHTML = '';
+                    project.tags.forEach(tag => {
+                        const tagElement = document.createElement('span');
+                        tagElement.className = `project-modal-tag bg-${tag.color}-600/20 text-${tag.color}-400`;
+                        tagElement.textContent = tag.name;
+                        tagsContainer.appendChild(tagElement);
+                    });
+                    
+                    // Populate content
+                    document.getElementById('modal-description').textContent = project.description;
+                    document.getElementById('modal-overview').innerHTML = project.overview;
+                    document.getElementById('modal-role').innerHTML = project.role;
+                    document.getElementById('modal-process').innerHTML = project.process;
+                    document.getElementById('modal-results').innerHTML = project.results;
+                    
+                    // Populate gallery
+                    const galleryContainer = document.getElementById('modal-gallery');
+                    galleryContainer.innerHTML = '';
+                    project.gallery.forEach(imageSrc => {
+                        const img = document.createElement('img');
+                        img.src = imageSrc;
+                        img.alt = project.title;
+                        galleryContainer.appendChild(img);
+                    });
+                    
+                    // Populate links
+                    const linksContainer = document.getElementById('modal-links');
+                    linksContainer.innerHTML = '';
+                    project.links.forEach(link => {
+                        const linkElement = document.createElement('a');
+                        linkElement.href = link.url;
+                        linkElement.className = `project-modal-link ${link.type}`;
+                        linkElement.textContent = link.text;
+                        linkElement.target = '_blank';
+                        linksContainer.appendChild(linkElement);
+                    });
+                    
+                    // Show modal
+                    projectModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close project modal
+        modalClose.addEventListener('click', function() {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal when clicking outside content
+        projectModal.addEventListener('click', function(e) {
+            if (e.target === projectModal) {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Handle hash in URL for direct project links
+        if (window.location.hash) {
+            const projectId = window.location.hash.substring(1);
+            if (projectsData[projectId]) {
+                // Find and click the corresponding view project button
+                const projectBtn = document.querySelector(`.view-project-btn[data-project="${projectId}"]`);
+                if (projectBtn) {
+                    projectBtn.click();
+                    // Scroll to top of page
+                    window.scrollTo(0, 0);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
